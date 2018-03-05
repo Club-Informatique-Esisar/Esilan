@@ -6,6 +6,8 @@
  * Version: 1.0
  ************************************************/
 
+include_once '../class/TypePlace.php';
+
 /*
 	private $idTypePlace;  // integer PK
 	
