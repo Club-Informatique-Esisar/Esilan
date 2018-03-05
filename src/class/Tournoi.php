@@ -11,7 +11,7 @@ class Tournoi
 	private $idLAN;       // integer PK FK
 	private $idJeu;       // integer PK FK     
 	
-	private $durée;       // float
+	private $duree;       // float
 	private $heureDebut;  // float
 	
 	
@@ -49,9 +49,9 @@ class Tournoi
     /**
      * @return float
      */
-    public function getDurée()
+    public function getDuree()
     {
-        return $this->durée;
+        return $this->duree;
     }
 
     
@@ -84,9 +84,9 @@ class Tournoi
     /**
      * @param float $durée
      */
-    public function setDurée($durée)
+    public function setDuree($duree)
     {
-        $this->durée = $durée;
+        $this->duree = $duree;
     }
     
 

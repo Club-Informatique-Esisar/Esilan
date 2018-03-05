@@ -6,7 +6,7 @@
  * Version: 1.0
  ************************************************/
 
-class User 
+class TypePlace 
 {
 	private $idTypePlace;  // integer PK
 	
@@ -20,16 +20,7 @@ class User
 	function __construct(){
 	}
 	
-	// ------------------------------ GETTEURS
 	
-    /**
-     * @return integer
-     */
-    public function getIdGamer()
-    {
-        return $this->idGamer;
-    }
-
     /**
      * @return integer
      */
@@ -39,13 +30,29 @@ class User
     }
 
     /**
-     * @return boolean
+     * @return integer
      */
-    public function getValide()
+    public function getPrix()
     {
-        return $this->valide;
+        return $this->prix;
     }
-    
+
+    /**
+     * @return string
+     */
+    public function getNomType()
+    {
+        return $this->nomType;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getMaxPlace()
+    {
+        return $this->maxPlace;
+    }
+
     /**
      * @return integer
      */
@@ -53,19 +60,10 @@ class User
     {
         return $this->idLAN;
     }
-    
-    
-    
-    // ------------------------------ SETTEURS
-    
-    /**
-     * @param integer $idGamer
-     */
-    public function setIdGamer($idGamer)
-    {
-        $this->idGamer = $idGamer;
-    }
 
+    
+    // ------------------------------
+    
     /**
      * @param integer $idTypePlace
      */
@@ -75,20 +73,39 @@ class User
     }
 
     /**
-     * @param boolean $valide
+     * @param integer $prix
      */
-    public function setValide($valide)
+    public function setPrix($prix)
     {
-        $this->valide = $valide;
+        $this->prix = $prix;
+    }
+
+    /**
+     * @param string $nomType
+     */
+    public function setNomType($nomType)
+    {
+        $this->nomType = $nomType;
+    }
+
+    /**
+     * @param integer $maxPlace
+     */
+    public function setMaxPlace($maxPlace)
+    {
+        $this->maxPlace = $maxPlace;
     }
 
     /**
      * @param integer $idLAN
      */
-    public function setValide($idLAN)
+    public function setIdLAN($idLAN)
     {
         $this->idLAN = $idLAN;
     }
+
+	
+
 	
 }
 
