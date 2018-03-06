@@ -25,6 +25,22 @@ class PlaceManager
         $this->setDb($db);
     }
     
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+    
+    public function createTable(){
+        $req = $this->_db->exec("CREATE TABLE `Place` (
+            `idGamer` INT NOT NULL ,
+            `idTypePlace` INT NOT NULL ,
+            CONSTRAINT FK_GamerPlace FOREIGN KEY (idGamer)
+            REFERENCES Gamer(idGamer),
+            CONSTRAINT FK_TypePlacePlace FOREIGN KEY (idTypePlace)
+            REFERENCES TypePlace(idTypePlace),
+            CONSTRAINT PK_Participation PRIMARY KEY (idGamer, idTypePlace))");
+    }
+    
     public function add(Place $place)
     {
         $q = $this->_db->prepare('INSERT INTO Place(idGamer, idTypePlace, valide) VALUES(:idGamer, :idTypePlace, :valide)');
@@ -101,10 +117,7 @@ class PlaceManager
         $q->execute();
     }
     
-    public function setDb(PDO $db)
-    {
-        $this->_db = $db;
-    }
+
     
 }
 ?>

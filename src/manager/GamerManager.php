@@ -23,6 +23,18 @@ class GamerManager
         $this->setDb($db);
     }
     
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+    
+    public function createTable(){
+        $req = $this->_db->exec("CREATE TABLE `Gamer` (
+            `idGamer` INT NOT NULL PRIMARY KEY ,
+            `nomGamer` TEXT NOT NULL ,
+            `promo` TEXT NOT NULL)");
+    }
+    
     public function add(Gamer $gamer)
     {
         $q = $this->_db->prepare('INSERT INTO Gamer(nomGamer, promo) VALUES(:nomGamer, :promo)');
@@ -74,10 +86,7 @@ class GamerManager
         $q->execute();
     }
     
-    public function setDb(PDO $db)
-    {
-        $this->_db = $db;
-    }
+
 }
 
 ?>

@@ -27,6 +27,21 @@ class LANManager
         $this->setDb($db);
     }
     
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+    
+    public function createTable(){
+        $req = $this->_db->exec("CREATE TABLE `LAN` (
+            `idLAN` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+            `nomLAN` TEXT NOT NULL ,
+            `descLAN` TEXT NOT NULL,
+            `imgLAN` TEXT NOT NULL ,
+            `dateDebut` DATETIME NOT NULL ,
+            `dateFin` DATETIME NOT NULL)");
+    }
+    
     public function add(LAN $lan)
     {
         $q = $this->_db->prepare('INSERT INTO LAN(nomLAN, descLAN, imgLAN, dateDebut, dateFin) VALUES(:nomLAN, :descLAN, :imgLAN, :dateDebut, :dateFin)');
@@ -84,12 +99,7 @@ class LANManager
         
         $q->execute();
     }
-    
-    public function setDb(PDO $db)
-    {
-        $this->_db = $db;
-    }
-    
+
 }
 
 ?>

@@ -26,12 +26,28 @@ class TypePlaceManager
         $this->setDb($db);
     }
     
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+    
+    public function createTable(){
+        $req = $this->_db->exec("CREATE TABLE `TypePlace` (
+            `idTypePlace` INT NOT NULL PRIMARY KEY,
+            `prix` INT NOT NULL ,
+            `nomType` TEXT NOT NULL ,
+            `maxPlace` INT NOT NULL ,
+            `idLAN` INT NOT NULL ,
+            CONSTRAINT FK_LanTypePlace FOREIGN KEY (idLAN)
+            REFERENCES Lan(idLAN))");
+    }
+    
     public function add(TypePlace $typePlace)
     {
         $q = $this->_db->prepare('INSERT INTO TypePlace(prix, nomType, maxPlace, idLAN) VALUES(:prix, :nomType, :maxPlace, :idLAN)');
         
-        $q->bindValue(':prix', $typePlace->getPrix(), PDO::PARAM_INT);
-        $q->bindValue(':nomType', $typePlace->getNomType(), PDO::PARAM_INT);
+        $q->bindValue(':prix', $typePlace->getPrix());
+        $q->bindValue(':nomType', $typePlace->getNomType());
         $q->bindValue(':maxPlace', $typePlace->getMaxPlace());
         $q->bindValue(':idLAN', $typePlace->getIdLAN());
         
@@ -91,10 +107,6 @@ class TypePlaceManager
         $q->execute();
     }
     
-    public function setDb(PDO $db)
-    {
-        $this->_db = $db;
-    }
     
 }
 ?>

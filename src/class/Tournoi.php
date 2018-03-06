@@ -11,6 +11,7 @@ class Tournoi
 	private $idLAN;       // integer PK FK
 	private $idJeu;       // integer PK FK     
 	
+	/* TODO Pass duree and heureDebut to Datetime */
 	private $duree;       // float
 	private $heureDebut;  // float
 	

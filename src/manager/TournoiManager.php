@@ -13,7 +13,7 @@ include_once '../class/Tournoi.php';
 private $idLAN;       // integer PK FK
 private $idJeu;       // integer PK FK
 
-private $durée;       // float
+private $duree;       // float
 private $heureDebut;  // float
 */
 
@@ -24,6 +24,28 @@ class TournoiManager
     public function __construct($db)
     {
         $this->setDb($db);
+    }
+    
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+    
+    /* TODO Pass duree and heureDebut to Datetime */
+    private $todo = false;
+    public function createTable(){
+        while ($this->todo){
+            $req = $this->_db->exec("CREATE TABLE `Tournoi` (
+            `idLAN` INT NOT NULL ,
+            `idJeu` INT NOT NULL ,
+            `duree` INT NOT NULL ,
+            `heureDebut` INT NOT NULL ,
+            CONSTRAINT FK_LANTournoi FOREIGN KEY (idLAN)
+            REFERENCES LAN(idLAN),
+            CONSTRAINT FK_JeuTournoi FOREIGN KEY (idJeu)
+            REFERENCES Jeu(idJeu),
+            CONSTRAINT PK_Participation PRIMARY KEY (idLAN, idJeu))");
+        }
     }
     
     public function add(Tournoi $tournoi)
@@ -103,11 +125,7 @@ class TournoiManager
         $q->bindValue(':idLAN', $tournoi->getIdLAN(), PDO::PARAM_INT);
         $q->execute();
     }
-    
-    public function setDb(PDO $db)
-    {
-        $this->_db = $db;
-    }
+   
     
 }
 ?>

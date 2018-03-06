@@ -23,6 +23,23 @@ class ParticipationManager
         $this->setDb($db);
     }
     
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+        
+    public function createTable(){
+        $req = $this->_db->exec("CREATE TABLE `Participation` (
+            `idGamer` INT NOT NULL ,
+            `idTournoi` INT NOT NULL ,
+            CONSTRAINT PK_Participation PRIMARY KEY (idGamer, idTournoi)),
+            CONSTRAINT FK_GamerParticipation FOREIGN KEY (idGamer)
+            REFERENCES Gamer(idGamer),
+            CONSTRAINT FK_TournoiParticipation FOREIGN KEY (idTournoi)
+            REFERENCES Tournoi(idTournoi),
+            ");
+    }
+    
     public function add(Participation $part)
     {
         $q = $this->_db->prepare('INSERT INTO Participation(idGamer, idTournoi) VALUES(:idGamer, :idTournoi)');
@@ -101,12 +118,7 @@ class ParticipationManager
 //         $q->bindValue(':idGamer', $Participation->getIdParticipation(), PDO::PARAM_INT);
 //         $q->execute();
 //     }
-    
-    public function setDb(PDO $db)
-    {
-        $this->_db = $db;
-    }
-    
+
 }
 
 ?>

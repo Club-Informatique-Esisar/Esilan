@@ -24,6 +24,19 @@ class JeuManager
         $this->setDb($db);
     }
     
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+        
+    public function createTable(){
+        $req = $this->_db->exec("CREATE TABLE `Jeu` (
+            `idJeu` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+            `nomJeu` TEXT NOT NULL ,
+            `descJeu` TEXT NOT NULL,
+            `imgJeu` TEXT NOT NULL)");
+    }
+    
     public function add(Jeu $jeu)
     {
         $q = $this->_db->prepare('INSERT INTO Jeu(nomJeu, descJeu, imgJeu) VALUES(:nomJeu, :descJeu, :imgJeu)');
@@ -76,11 +89,6 @@ class JeuManager
         $q->execute();
     }
     
-    public function setDb(PDO $db)
-    {
-        $this->_db = $db;
-    }	
-
 }
 
 ?>
