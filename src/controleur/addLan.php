@@ -42,7 +42,6 @@ if(!empty($_POST))
         if(in_array(strtolower($extension),$tabExt))
         {
             // On recupere les dimensions du fichier
-            var_dump($_FILES['imgLAN']);
             $infosImg = getimagesize($_FILES['imgLAN']['tmp_name']);
             
             // On verifie le type de l'image
