@@ -15,7 +15,14 @@ class Gamer
 
 	
 	// Constructeur
-	function __construct(){
+	function __construct($data){
+	    if ($data == NULL){
+	        
+	    } else {
+	        $this->setIdGamer($data['idGamer']);
+	        $this->setNomGamer($data['nomGamer']);
+	        $this->setPromo($data['promo']);
+	    }
 	}
 	
 	// ------------------------------ GETTEURS

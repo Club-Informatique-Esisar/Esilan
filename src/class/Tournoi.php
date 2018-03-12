@@ -11,13 +11,20 @@ class Tournoi
 	private $idLAN;       // integer PK FK
 	private $idJeu;       // integer PK FK     
 	
-	/* TODO Pass duree and heureDebut to Datetime */
-	private $duree;       // float
-	private $heureDebut;  // float
+	private $dateDebut;       // DateTime
+	private $dateFin;  // DateTime
 	
 	
 	// ------------------------------ CONSTRUCTOR
-	function __construct(){
+	function __construct($data){
+	    if ($data == NULL){
+	        
+	    } else {
+	        $this->setIdLAN($data['idLAN']);
+	        $this->setIdJeu($data['idJeu']);
+	        $this->setDateDebut($data['dateDebut']);
+	        $this->setDateFin($data['dateFin']);
+	    }
 	}
 	
 	
@@ -40,19 +47,19 @@ class Tournoi
     }
 
     /**
-     * @return float
+     * @return DateTime
      */
-    public function getHeureDebut()
+    public function getDateDebut()
     {
-        return $this->heureDebut;
+        return $this->dateDebut;
     }
 
     /**
-     * @return float
+     * @return DateTime
      */
-    public function getDuree()
+    public function getDateFin()
     {
-        return $this->duree;
+        return $this->dateFin;
     }
 
     
@@ -69,25 +76,25 @@ class Tournoi
     /**
      * @param integer $idJeu
      */
-    public function setIdTournoi($idJeu)
+    public function setIdJeu($idJeu)
     {
         $this->idJeu = $idJeu;
     }
 
     /**
-     * @param float $heureDebut
+     * @param DateTime $heureDebut
      */
-    public function setHeureDebut($heureDebut)
+    public function setDateDebut($dateDebut)
     {
-        $this->heureDebut = $heureDebut;
+        $this->dateDebut = $dateDebut;
     }
 
     /**
-     * @param float $durée
+     * @param DateTime $durée
      */
-    public function setDuree($duree)
+    public function setDateFin($dateFin)
     {
-        $this->duree = $duree;
+        $this->dateFin = $dateFin;
     }
     
 

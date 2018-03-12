@@ -14,7 +14,14 @@ class Place
 	private $valide; 	     // boolean
 	
 	// Constructeur
-	function __construct(){
+	function __construct($data){
+	    if ($data == NULL){
+	        
+	    } else {
+	        $this->setIdGamer($data['idGamer']);
+	        $this->setIdTypePlace($data['idTypePlace']);
+	        $this->setValide($data['valide']);
+	    }
 	}
     /**
      * @return integer

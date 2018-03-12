@@ -44,6 +44,7 @@ class LANManager
     
     public function add(LAN $lan)
     {
+        echo "add lan\n";
         $q = $this->_db->prepare('INSERT INTO LAN(nomLAN, descLAN, imgLAN, dateDebut, dateFin) VALUES(:nomLAN, :descLAN, :imgLAN, :dateDebut, :dateFin)');
         
         $q->bindValue(':nomLAN', $lan->getNomLAN(), PDO::PARAM_STR);
@@ -74,7 +75,7 @@ class LANManager
     {
         $lans = [];
         
-        $q = $this->_db->query('SELECT idLAN, nomLAN, descLAN, imgLAN, dateDebut, dateFin FROM LAN ORDER BY nomLAN');
+        $q = $this->_db->query('SELECT idLAN, nomLAN, descLAN, imgLAN, dateDebut, dateFin FROM LAN ORDER BY idLan DESC');
         
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {

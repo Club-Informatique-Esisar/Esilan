@@ -23,6 +23,7 @@ class DAO {
     }
     
     function insertLAN(LAN $lan){
+        echo "Insert lan\n";
         $lanManager = new LANManager($this->db);
         $lanManager->add($lan);
     }
@@ -32,7 +33,7 @@ class DAO {
         return $lanManager->getLANs();
     }
     
-    function getLan($id){
+    function getLAN($id){
         $lanManager = new LANManager($this->db);
         return $lanManager->get($id);
     }

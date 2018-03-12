@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Upload d'une image sur le serveur !</title>
+    <title>Ajouter un EsiLAN !</title>
     <link rel="stylesheet" type="text/css" href="">
      <meta charset="UTF-8"> 
   </head>
@@ -16,24 +16,22 @@
        	  </p>
        	  <p>
        	  	Date début :
-       	  	<input type="date" name="dateDebut">
-       	  	<input type="time" name="heureDebut">
+       	  	<input type="date" name="dateDebut" value="<?=date("Y-m-j")?>">
+       	  	<input type="time" name="heureDebut" value="19:00">
        	  </p>
        	  <p>
        	  	Date fin :
-       	  	<input type="date" name="dateFin">
-       	  	<input type="time" name="heureFin">
+       	  	<input type="date" name="dateFin" value="<?=date("Y-m-j")?>">
+       	  	<input type="time" name="heureFin" value="19:00">
        	  </p>
        	  
        	  <p>
-       	  	 <textarea name="message" rows="10" cols="30">
-Description de la LAN.
-             </textarea> 
+       	  	 <textarea name="descLAN" rows="10" cols="30">Description de la LAN.</textarea> 
        	  </p>
           <p>
             <label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Affiche :</label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="10000" />
-            <input name="fichier" type="file" id="fichier_a_uploader" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+            <input name="imgLAN" type="file" id="fichier_a_uploader" />
          </p>
          <p>
             <input type="submit" name="submit" value="Uploader" />

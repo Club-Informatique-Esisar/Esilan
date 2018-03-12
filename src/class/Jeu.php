@@ -15,7 +15,15 @@ class Jeu
 	
 	
 	// Constructeur
-	function __construct(){
+	function __construct($data){
+	    if ($data == NULL){
+	        
+	    } else {
+	        $this->setIdJeu($data['idJeu']);
+	        $this->setDescJeu($data['descJeu']);
+	        $this->setImg($data['imgJeu']);
+	        $this->setNomJeu($data['nomjeu']);
+	    }
 	}
 	
 	// ------------------------------ GETTEURS
@@ -65,7 +73,7 @@ class Jeu
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setNomJeu($name)
     {
         $this->nomJeu = $nomJeu;
     }

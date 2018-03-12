@@ -5,8 +5,8 @@
 include_once '../manager/DAO.php';
 
 // Constantes
-define('TARGET', '../media/');    // Repertoire cible
-define('MAX_SIZE', 100000);    // Taille max en octets du fichier
+define('TARGET', '../img/');    // Repertoire cible
+define('MAX_SIZE', 1000000);    // Taille max en octets du fichier
 
 // Tableaux de donnees
 $tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
@@ -33,29 +33,30 @@ $noError = false;
 if(!empty($_POST))
 {
     // On verifie si le champ est rempli
-    if( !empty($_FILES['fichier']['name']) )
+    if( !empty($_FILES['imgLAN']['name']) )
     {
         // Recuperation de l'extension du fichier
-        $extension  = pathinfo($_FILES['fichier']['name'], PATHINFO_EXTENSION);
+        $extension  = pathinfo($_FILES['imgLAN']['name'], PATHINFO_EXTENSION);
         
         // On verifie l'extension du fichier
         if(in_array(strtolower($extension),$tabExt))
         {
             // On recupere les dimensions du fichier
-            $infosImg = getimagesize($_FILES['fichier']['tmp_name']);
+            var_dump($_FILES['imgLAN']);
+            $infosImg = getimagesize($_FILES['imgLAN']['tmp_name']);
             
             // On verifie le type de l'image
             if($infosImg[2] >= 1 && $infosImg[2] <= 14)
             {
                     // Parcours du tableau d'erreurs
-                    if(isset($_FILES['fichier']['error'])
-                        && UPLOAD_ERR_OK === $_FILES['fichier']['error'])
+                    if(isset($_FILES['imgLAN']['error'])
+                        && UPLOAD_ERR_OK === $_FILES['imgLAN']['error'])
                     {
                         // On renomme le fichier
                         $nomImage = md5(uniqid()) .'.'. $extension;
                         
                         // Si c'est OK, on teste l'upload
-                        if(move_uploaded_file($_FILES['fichier']['tmp_name'], TARGET.$nomImage))
+                        if(move_uploaded_file($_FILES['imgLAN']['tmp_name'], TARGET.$nomImage))
                         {
                             $message = 'Upload réussi !';
                             $noError = true;
@@ -91,14 +92,14 @@ if(!empty($_POST))
 }
 
 if ($noError){
+    echo "ouais";
     $imgLAN = $nomImage;
-    $nomImage = $_POST['nomLAN'];
     $dateDebut = $_POST['dateDebut'].' '.$_POST['heureDebut'];
     $dateFin = $_POST['dateFin'].' '.$_POST['heureFin'];
-    $descLan = $_POST['descLan'];
-    $nomLAN = $_POST['nomLan'];
+    $descLAN = $_POST['descLAN'];
+    $nomLAN = $_POST['nomLAN'];
     
-    $newLAN = new LAN();    
+    $newLAN = new LAN(NULL);    
     $newLAN->setImgLAN($imgLAN);
     $newLAN->setDateDebut($dateDebut);
     $newLAN->setDateFin($dateFin);
@@ -106,10 +107,11 @@ if ($noError){
     $newLAN->setNomLAN($nomLAN);
     
     $DAO = new DAO();
-    $DAO->insertLAN($lan);
+    $DAO->insertLAN($newLAN);
     
+} else {
+    echo $message;
 }
-
 
 
 include '../view/addLan.view.php';

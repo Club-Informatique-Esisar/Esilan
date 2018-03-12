@@ -13,8 +13,15 @@ class Participation
 
 	
 	// Constructeur
-	function __construct(){
+	function __construct($data){
+	    if ($data == NULL){
+	        
+	    } else {
+	        $this->setIdGamer($data['idGamer']);
+	        $this->setIdTournoi($data['idTournoi']);
+	    }
 	}
+
 	
 	
     /**

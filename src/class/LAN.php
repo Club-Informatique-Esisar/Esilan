@@ -19,9 +19,19 @@ class LAN
 	
 	
 	// Constructeur
-	function __construct(){
+	function __construct($data){
+	    if ($data == NULL){
+	        
+	    } else {
+	        $this->setIdLAN($data['idLAN']);
+	        $this->setNomLAN($data['nomLAN']);
+	        $this->setDescLAN($data['descLAN']);
+	        $this->setImgLAN($data['imgLAN']);
+	        $this->setDateDebut($data['dateDebut']);
+	        $this->setDateFin($data['dateFin']);
+	    }
 	}
-	
+
 	// ------------------------------ GETTEURS
 
     /**

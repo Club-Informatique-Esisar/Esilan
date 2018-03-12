@@ -17,8 +17,18 @@ class TypePlace
 	
 	
 	// Constructeur
-	function __construct(){
+	function __construct($data){
+	    if ($data == NULL){
+	        
+	    } else {
+	        $this->setIdTypePlace($data['idTypePlace']);
+	        $this->setPrix($data['prix']);
+	        $this->setNomType($data['nomType']);
+	        $this->setMaxPlace($data['maxPlace']);
+	        $this->setIdLAN($data['idLan']);
+	    }
 	}
+
 	
 	
     /**
