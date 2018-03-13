@@ -5,7 +5,6 @@ include_once '../manager/DAO.php';
 $dao = new DAO();
 
 $lans = $dao->getLANs();
-var_dump($lans);
 
 $data = '<h1>LANs : </h1>';
 
