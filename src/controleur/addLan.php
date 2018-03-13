@@ -91,7 +91,6 @@ if(!empty($_POST))
 }
 
 if ($noError){
-    echo "ouais";
     $imgLAN = $nomImage;
     $dateDebut = $_POST['dateDebut'].' '.$_POST['heureDebut'];
     $dateFin = $_POST['dateFin'].' '.$_POST['heureFin'];
