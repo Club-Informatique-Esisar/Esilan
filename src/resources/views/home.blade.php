@@ -3,6 +3,7 @@
 @section('content')
 <section id="home-content">
     <div class="container">
+    @if($esilan)
         <article>
             <div class="poster-container">
                 <a href="{{ url("/esilan/$esilan->id")}}">
@@ -18,6 +19,7 @@
                 </a>
             </div>
         </article>
+    @endif
     </div>
 </section>
 @endsection

@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <form class ="form-esilan" method="post" action="{{ url('/admin/esilan')}}" enctype="multipart/form-data">
-        @csrf
+        {{ csrf_field() }}
         <input type="hidden" name="commande" value="{{ $opt }}">
         <input type="hidden" name="idEsilan" value="{{ $esilan->id }}">
 

@@ -17,7 +17,7 @@
     <form method="get" role="form">
         <select name="idEsilan">
     @foreach($esilans as $esilan)
-        @if($esilan->id == $esilanChoosed->id)
+        @if($esilanChoosed && $esilan->id == $esilanChoosed->id)
         <option value="{{ $esilan->id }}" selected>{{ $esilan->name }}</option>
         @else
         <option value="{{ $esilan->id }}">{{ $esilan->name }}</option>
@@ -28,6 +28,7 @@
         <input type="submit" class="button button-primary" value="Afficher les inscrits">
     </form>
 
+    @if($esilanChoosed)
     <table id="table" class="cell-border hover stripe">
         <thead>
             <tr>
@@ -78,5 +79,6 @@
             </tr>
         </tfoot>
     </table>
+    @endif
 </div>
 @endsection

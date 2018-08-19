@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <form class ="form-tournament" method="post" action="{{ url('/admin/tournaments')}}" enctype="multipart/form-data">
-        @csrf
+        {{ csrf_field() }}
         <input type="hidden" name="commande" value="{{ $opt }}">
         <input type="hidden" name="idTournament" value="{{ $tournament->id }}">
 

@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Listes des Jeux</h2>
+    <h2>Listes des Tournois</h2>
 
     {{-- <a class="btn" href="{{ url('/admin/tournaments/new') }}">Renseigner un nouveau jeu</a> --}}
 

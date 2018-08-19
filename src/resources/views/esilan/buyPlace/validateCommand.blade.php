@@ -11,7 +11,7 @@
         <article class="clearfix">
             <div class="post-content clearfix">
             <form class="checkout" method="post" action="{{ url('/commande')}}">
-                    {{ @csrf_field() }}
+                {{ csrf_field() }}
                     <div id="checkout-detail" class="clearfix">
                         <div class="col-1 ">
                             <fieldset>
