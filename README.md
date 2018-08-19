@@ -5,14 +5,12 @@ Ce projet est la version 2.0 du site de l'Esilan du Club Informatique de l'Esisa
 ## Requirement
 * [Composer](https://getcomposer.org/download/) )
 * Les dépendances de Laravel 5.5 :
-    * PHP >= 7.1.3
+    * PHP >= 7.0
     * OpenSSL PHP Extension
     * PDO PHP Extension
     * Mbstring PHP Extension
     * Tokenizer PHP Extension
     * XML PHP Extension
-    * Ctype PHP Extension
-    * JSON PHP Extension
 
 ## Installation du projet
 
