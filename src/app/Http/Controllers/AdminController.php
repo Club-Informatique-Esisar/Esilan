@@ -69,9 +69,11 @@ class AdminController extends Controller
             $esilan->beginDate = Carbon::createFromFormat('Y-m-d H:i',$request->beginDate." ".$request->beginTime);
             $esilan->endDate = Carbon::createFromFormat('Y-m-d H:i',$request->endDate." ".$request->endTime);
 
-            $imgName = $esilan->name . "_affiche_" . time() . "." . $request->img->getClientOriginalExtension();
-            $request->img->move(public_path('upload'), $imgName);
-            $esilan->imgName = $imgName;
+            if ($request->hasFile('img') && $request->file('img')->isValid()) {
+                $imgName = "esilanAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
+                $request->file('img')->move(public_path('upload'), $imgName);
+                $esilan->imgName = $imgName;
+            }
 
             $esilan->save();
             
@@ -92,9 +94,9 @@ class AdminController extends Controller
             $updateEsilan->beginDate = Carbon::createFromFormat('Y-m-d H:i',$request->beginDate." ".$request->beginTime);
             $updateEsilan->endDate = Carbon::createFromFormat('Y-m-d H:i',$request->endDate." ".$request->endTime);
 
-            if ($request->img) {
-                $imgName = $esilan->name . "_affiche_" . time() . "." . $request->img->getClientOriginalExtension();
-                $request->img->move(public_path('upload'), $imgName);
+            if ($request->hasFile('img') && $request->file('img')->isValid()) {
+                $imgName = "esilanAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
+                $request->file('img')->move(public_path('upload'), $imgName);
                 $updateEsilan->imgName = $imgName;
             }
 
@@ -212,9 +214,11 @@ class AdminController extends Controller
             $game->name = $request->titleGame;
             $game->desc = $request->descGame;
 
-            $imgName = $game->name . "_affiche_" . time() . "." . $request->img->getClientOriginalExtension();
-            $request->img->move(public_path('upload'), $imgName);
-            $game->imgName = $imgName;
+            if ($request->hasFile('img') && $request->file('img')->isValid()) {
+                $imgName = "jeuAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
+                $request->file('img')->move(public_path('upload'), $imgName);
+                $game->imgName = $imgName;
+            }
             $game->save();
 
         } else if ($request->commande == "update"){
@@ -223,9 +227,9 @@ class AdminController extends Controller
             $updateGame->name = $request->titleGame;
             $updateGame->desc = $request->descGame;
 
-            if ($request->img) {
-                $imgName = $game->name . "_affiche_" . time() . "." . $request->img->getClientOriginalExtension();
-                $request->img->move(public_path('upload'), $imgName);
+            if ($request->hasFile('img') && $request->file('img')->isValid()) {
+                $imgName = "jeuAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
+                $request->file('img')->move(public_path('upload'), $imgName);
                 $updateGame->imgName = $imgName;
             }
 
