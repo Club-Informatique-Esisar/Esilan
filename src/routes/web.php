@@ -19,7 +19,7 @@ Route::get('/esilan', 'EsilanController@index');
 Route::get('/esilan/{id}', 'EsilanController@show');
 
 
-
+Route::get('/faq', 'FAQController@show');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('profile', 'EsilanController@index')->name('profile');
@@ -60,6 +60,11 @@ Route::middleware(['admin'])->group(function () {
             Route::get('/', 'AdminController@gamersDisplay');
             Route::post('/', 'AdminController@gamerUpdate');
             Route::get('/{id}', 'AdminController@gamersShow');
+        });
+
+        Route::prefix('faq')->group(function () {
+            Route::get('/', 'AdminController@faqShow');
+            Route::post('/', 'AdminController@faqUpdate');
         });
 
         // AJAX

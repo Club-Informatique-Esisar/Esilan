@@ -258,9 +258,15 @@ section#home-content img.esilan-poster{
 }
 
 
+section#home-content .faq-container {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 30px;
+}
+
 
 /************************************************
- * CONTENT
+ * CONTENT PRODUCT ESILAN
  ************************************************/
 
 section .bg-hover {

@@ -36,6 +36,7 @@
                     <li class="hardcore-gamer"><a href="{{ url('/') }}">Accueil</a></li>
                     <li class="hardcore-gamer "><a href="{{ url("/esilan") }}">L'Esilan</a></li>
                     <li class="hardcore-gamer "><a href="#">Tournois</a></li>
+                    <li class="hardcore-gamer "><a href="{{ url("/faq") }}">F.A.Q.</a></li>
                 </ul>
 
                 @guest
