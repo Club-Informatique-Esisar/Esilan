@@ -48,8 +48,8 @@ class AdminController extends Controller
         if ($id == "new"){
             $esilan = new Esilan();
             $esilan->ticketTypes[] = new TicketType();
-            $esilan->beginDate = (new \DateTime())->format("Y-m-d H:i:s");
-            $esilan->endDate = (new \DateTime())->format("Y-m-d H:i:s");
+            $esilan->beginDate = (new \DateTime("today 19:00"))->format("Y-m-d H:i:s");
+            $esilan->endDate = (new \DateTime("tomorrow 7:00"))->format("Y-m-d H:i:s");
             $opt = "create";
         } else {
             $opt = "update";
@@ -149,7 +149,8 @@ class AdminController extends Controller
 
         return response()->json([
             'nameValidator' => ($ticketToValidate->userValidator->name),
-            'dateValidation' => ($ticketToValidate->dateValidation->formatLocalized("%A %e %B %Y")." - <i>". $ticketToValidate->dateValidation->formatLocalized(" %T")."</i>" )
+            'dateValidation' => ($ticketToValidate->dateValidation->formatLocalized("%A %e %B %Y")),
+            'timeValidation' => ($ticketToValidate->dateValidation->formatLocalized(" %T"))
         ]);
     }
 

@@ -32,12 +32,12 @@
     <table id="table" class="cell-border hover stripe">
         <thead>
             <tr>
-                <th>Type de place</th>
-                <th>Nom du gamer</th>
-                <th>Email</th>
+                <th class="column-type-place">Type de place</th>
+                <th class="column-gamer-data">Gamer</th>
+                {{-- <th>Email</th> --}}
                 <th>Date Inscription</th>
-                <th>Date Validation</th>
-                <th>Valider par</th>
+                <th class="column-ticket-validation">Validation</th>
+                {{-- <th>Valider par</th> --}}
                 <th>État inscription</th>
             </tr>
         </thead>
@@ -45,21 +45,26 @@
         @foreach($esilanChoosed->ticketTypes as $type)
             @foreach($type->tickets as $ticket)
             <tr>
-                <td>{{ $type->name }}</td>
-                <td>{{ $ticket->gamer->name }}</td>
-                <td>{{ $ticket->gamer->email }}</td>
-                <td>{!! $ticket->dateCreation->formatLocalized("%A %e %B %Y")." - <i>". $ticket->dateCreation->formatLocalized("%T")."</i>" !!}</td>
+                <td class="column-type-place">{{ $type->name }}</td> 
+                <td class="column-gamer-data">{{ $ticket->gamer->name }}
+                    <p class="mail">{{ $ticket->gamer->email }}</p>
+                </td>
+                {{-- <td>{{ $ticket->gamer->email }}</td> --}}
+                <td class="column-ticket-inscription">{!! $ticket->dateCreation->formatLocalized("%A %e %B %Y")." - <i>". $ticket->dateCreation->formatLocalized("%T")."</i>" !!}</td>
                 
                 @if($ticket->dateValidation == null)
-                <td class="dateValidation"></td>
-                <td class="validateBy"></td>
+                <td class="column-ticket-validation"></td>
+                {{-- <td class="validateBy"></td> --}}
                 <td>
-                    <a class="btn-escroc" data-idEsilan="{{ $ticket->id }}" href="">Escroc</a>
+                    <a class="btn-escroc" data-nameEsilan="{{ $esilanChoosed->name }}" data-nameGamer="{{ $ticket->gamer->name }}" data-idTicket="{{ $ticket->id }}" href="">Escroc</a>
                 </td>
                 @else
-                <td>{!! $ticket->dateValidation->formatLocalized("%A %e %B %Y")." - <i>". $ticket->dateValidation->formatLocalized(" %T")."</i>" !!}</td>
-                <td>{{ $ticket->userValidator->name }}</td>
-                <td class="validateBy">
+                <td class="column-ticket-validation">
+                    {!! $ticket->dateValidation->formatLocalized("%A %e %B %Y")." <span class=\"time\">à ". $ticket->dateValidation->formatLocalized(" %T")."</span>" !!}
+                    <span class="validation">Par <span class="validator">{{ $ticket->userValidator->name }}</span></div>
+                </td>
+                {{-- <td class="validateBy">{{ $ticket->userValidator->name }}</td> --}}
+                <td>
                     <a class="btn-payeur">A payé</a>
                 </td>
                 @endif
@@ -69,12 +74,12 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Type de place</th>
-                <th>Nom du gamer</th>
-                <th>Email</th>
+                <th class="column-type-place">Type de place</th>
+                <th class="column-gamer-data">Gamer</th>
+                {{-- <th>Email</th> --}}
                 <th>Date Inscription</th>
-                <th>Date Validation</th>
-                <th>Valider par</th>
+                {{-- <th>Date Validation</th> --}}
+                <th class="column-ticket-validation">Validation</th>
                 <th>État inscription</th>
             </tr>
         </tfoot>

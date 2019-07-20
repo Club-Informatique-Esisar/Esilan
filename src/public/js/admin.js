@@ -12,20 +12,27 @@ $(document).ready(function() {
     $(".btn-escroc").click(function( event ) {
         event.preventDefault();
         var e = $(this);
-        $.get('/admin/ajax/ticketValidation', {
-            idTicket: $(this).attr('data-idEsilan')
-        }).done(function(data) {
-            console.log("OK")
-            e.off('click');
-            e.click(preventDefault());
-            e.removeClass("btn-escroc")
-            e.addClass("btn-payeur");
-            e.html("A payé");
-            e.parent().parent().find(".validateBy").html(data.nameValidator);
-            e.parent().parent().find(".dateValidation").html(data.dateValidation);
-        }).fail(function() {
-            console.log("NOK")
-        });
+        let nameGamer = $(this).attr('data-nameGamer')
+        let nameEsilan = $(this).attr('data-nameEsilan')
+        if(confirm("Valider l'inscription de "+nameGamer+" pour "+nameEsilan+" ?")) {
+            $.get('/admin/ajax/ticketValidation', {
+                idTicket: $(this).attr('data-idTicket')
+            }).done(function(data) {
+                console.log("OK")
+                e.off('click');
+                // e.click(preventDefault());
+                e.removeClass("btn-escroc")
+                e.addClass("btn-payeur");
+                e.html("A payé");
+                // e.parent().parent().find(".validateBy").html(data.nameValidator);
+                // e.parent().parent().find(".dateValidation").html(data.dateValidation);
+
+                e.parent().parent().find(".column-ticket-validation").html(data.dateValidation+"<span class=\"time\"> à "+data.timeValidation+"</span><span class=\"validation\">Par <span class=\"validator\">"+data.nameValidator+"</span></span>")
+
+            }).fail(function() {
+                console.log("NOK")
+            });
+        }
     });
 
     // BOUTON COMPATIBILITE TOURNOIS

@@ -275,7 +275,7 @@ header {
 }
 
 header .logo {
-    flex: 0 0 12em;
+    flex: 0 0 10em;
     background: #1233a0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -324,10 +324,9 @@ ul.nav-top li {
  * ASIDE
  ****************************************************************/
 .sidebar{
-    width: 260px;
-    flex: 0 0 12em;
+    flex: 0 0 10em;
     color: #fff;
-    font-weight: 200;
+    /*font-weight: 200;*/
     background: #1233a0;
 }
 
@@ -361,7 +360,7 @@ ul.nav-top li {
     text-transform: uppercase;
 }
 .sidebar ul.nav a:hover {
-    background: rgba(255, 255, 255, 0.13);
+    background: rgba(255, 255, 255, 0.4);
     opacity: 1;
 }
 
@@ -397,22 +396,22 @@ table tr th{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
 }
 table tr td{
     padding: 8px 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #bbb;
 }
 
 th[colspan]:not([colspan="1"]):first-child {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #bbb;
     border-right: none;
     border-left: none;
 }
 
 th[colspan]:not([colspan="1"]) {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #bbb;
     text-align: center;
 }
 
@@ -421,7 +420,7 @@ table tbody tr:nth-child(even){
 }
 
 table tr:hover td {
-    background-color: #ddd;
+    background-color: #dcdcdc;
 }
 
 /* Table Pagination */
@@ -475,6 +474,33 @@ ul.pagination > li > span {
 .pagination li:last-child a {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+/* Specificic tables rules */
+
+.column-type-place, .column-gamer-data {
+    width: 8%;
+}
+
+td.column-gamer-data .mail {
+    display: block;
+    margin: 5px 0 0 0;
+}
+
+td.column-ticket-inscription, td.column-ticket-validation {
+    text-transform: capitalize;
+}
+td.column-ticket-validation .time {
+    font-style: italic;
+}
+td.column-ticket-validation .validation {
+    margin: 0%;
+    font-style: italic;
+    margin: 5px 0 0 0;
+    display: block;
+}
+td.column-ticket-validation .validator {
+    font-weight: bold;
 }
 
 /****************************************************************

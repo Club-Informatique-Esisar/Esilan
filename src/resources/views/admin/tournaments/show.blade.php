@@ -35,22 +35,38 @@
                 <div class="form-double">
                     <div class="form-element">
                         <label for="inputBeginDate">Date de début <span class="required">*</span></label>
+                    @if($esilanPreselected)
+                        <input type="date" id="inputBeginDate" name="beginDate" value="{{ $esilanPreselected->beginDate->format("Y-m-d") }}" required>
+                    @else
                         <input type="date" id="inputBeginDate" name="beginDate" value="{{ $tournament->beginDate->format("Y-m-d") }}" required>
+                    @endif
                     </div>
 
                     <div class="form-element">
                         <label for="inputBeginTime">Heure de début <span class="required">*</span></label>
+                    @if($esilanPreselected)
+                        <input type="time" id="inputbeginTime" name="beginTime" value="{{ $esilanPreselected->beginDate->format("H:i") }}" required>
+                    @else
                         <input type="time"  id="inputBeginTime" name="beginTime" value="{{ date('H:i', strtotime($tournament->beginDate)) }}" required>
+                    @endif
                     </div>
                 </div>
                 <div class="form-double">
                     <div class="form-element">
                         <label for="inputEndDate">Date de Fin <span class="required">*</span></label>
+                    @if($esilanPreselected)
+                        <input type="date" id="inputEndDate" name="endDate" value="{{ $esilanPreselected->endDate->format("Y-m-d") }}" required>
+                    @else
                         <input type="date" id="inputEndDate" name="endDate" value="{{ date('Y-m-d', strtotime($tournament->endDate)) }}" required>
+                    @endif
                     </div>
                     <div class="form-element">
                         <label for="inputEndTime">Heure de fin <span class="required">*</span></label>
+                    @if($esilanPreselected)
+                        <input type="time" id="inputEndTime" name="endTime" value="{{ $esilanPreselected->endDate->format("H:i") }}" required>
+                    @else
                         <input type="time" id="inputEndTime" name="endTime" value="{{ date('H:i', strtotime($tournament->endDate)) }}" required>
+                    @endif
                     </div>
                 </div>
 
