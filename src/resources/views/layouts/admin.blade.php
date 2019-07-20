@@ -45,7 +45,8 @@
                     <li><a href="{{ url('/admin/sales')}}">Ventes</a></li>
                     <li><a href="{{ url('/admin/games')}}">Jeu</a></li>
                     <li><a href="{{ url('/admin/tournaments')}}">Tournois</a></li>
-                    <li><a href="{{ url('/admin/gamers')}}">TODO - Gamers</a></li>
+                    <li><a href="{{ url('/admin/gamers')}}">Gamers</a></li>
+                    <li><a href="{{ url('/admin/faq')}}">FAQ</a></li>
                 </ul>
             </div>
         </aside>

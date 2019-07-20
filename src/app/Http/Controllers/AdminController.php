@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Esilan;
 use App\Game;
+use App\Page;
 use App\TicketType;
 use App\Ticket;
 use App\Tournament;
@@ -35,6 +36,23 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    /****************************************
+     * FAQ
+     */
+    public function faqShow(){
+        $faq = Page::where('name','faq')->first();
+        return view('admin.faq', array('faq' => $faq));
+    }
+
+    public function faqUpdate(Request $request){
+        // On part pour l'instant du principe que les entrées sont juste.
+        $faq = Page::where('name','faq')->first();
+        $faq->desc = $request->descFAQ;
+        $faq->save();
+        return redirect('/admin/faq');
+    }
+
 
     /****************************************
      * ESILAN
