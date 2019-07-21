@@ -613,6 +613,17 @@ form .form-element textarea {
     width: 100%;
 }
 
+form input[type="radio"] {
+    width: auto;
+}
+form label.radio {
+    margin: 0.5em 0;
+}
+form label.radio input[type="file"] {
+    width: 50%;
+    margin-left: 1em;
+}
+
 div.ticket-type {
     display: inline-block;
     padding: 15px;
