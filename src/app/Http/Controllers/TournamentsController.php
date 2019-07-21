@@ -14,7 +14,8 @@ class TournamentsController extends Controller
      */
     public function index()
     {
-        //
+        $tournaments = Tournament::orderBy('beginDate', 'desc')->get();
+        return view('tournaments.display',array('tournaments' => $tournaments));
     }
 
     /**
