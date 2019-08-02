@@ -615,3 +615,28 @@ fieldset p.description {
 }
 
 
+/****************************************************************
+ * FOOTER
+ ****************************************************************/
+
+ footer {
+    border-top: 2px solid #ddd;
+    padding: 25px 0 15px 0;
+    background-color: #eaeaea;
+    background-image: -webkit-linear-gradient(top,#eee,#e5e5e5);
+    background-image: -moz-linear-gradient(top,#eee,#e5e5e5);
+    background-image: -ms-linear-gradient(top,#eee,#e5e5e5);
+    background-image: -o-linear-gradient(top,#eee,#e5e5e5);
+    background-image: linear-gradient(to bottom,#eee,#e5e5e5);
+    background-repeat: repeat-x;
+}
+
+footer p, footer p a {
+    text-align: center;
+    color: #888;
+    text-decoration: none;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}

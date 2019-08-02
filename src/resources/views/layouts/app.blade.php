@@ -79,4 +79,15 @@
         <img class="gallery-content" id="img-gallery">
     </div>
 </body>
+<footer>
+    <div class="container clearfix">
+        <p>
+            © Esilan 2019 – Version 3.0 – 
+            <a href="mailto:club.informatique@esisar.grenoble-inp.fr">club.informatique@esisar.grenoble-inp.fr</a> 
+            {{-- – <a href="https://esilan.esisariens.org/contact/">Contact</a> --}}
+            <br> 
+            All rights reserved &lt;3
+        </p>
+    </div>
+</footer>
 </html>
