@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
 @foreach($esilans as $esilan)
-    <article class="esilan-product">
+    <article class="product">
         <a href="{{ url("/esilan/".$esilan->id) }}">
         @if(new DateTime() < new DateTime($esilan->beginDate))
             <div class="ribbon ribbon-new"></div>
