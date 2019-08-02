@@ -15,5 +15,5 @@
       </div>
 
   </section>
-  @yield('page-body')
+  @yield('pageBody')
 @endsection

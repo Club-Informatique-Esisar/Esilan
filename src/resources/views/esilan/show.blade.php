@@ -3,7 +3,7 @@
 @section('pageTitle')
 - {{$esilan->name}}
 @endsection
-@section('page-body')
+@section('pageBody')
   <section id="page-body">
     <div class="container body-content clearfix">
       <div class="col-left">
