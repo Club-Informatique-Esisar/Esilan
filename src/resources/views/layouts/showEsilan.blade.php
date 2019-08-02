@@ -17,6 +17,9 @@
 
   <section id="page-body">
     <div class="container body-content clearfix">
+
+      @yield('menuBar')
+
       <div class="col-left">
         {{-- Display left column content : LAN | Inscriptions | Tournament --}}
         @yield('leftContent')
