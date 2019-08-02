@@ -309,6 +309,15 @@ class AdminController extends Controller
             $tournament->esilan()->associate($request->idEsilanTournament);
             $tournament->game()->associate($request->idGameTournament);
 
+            if ($request->inputSwitchImg == "game_img") {
+                $game = Game::find($request->idGameTournament);
+                $tournament->imgName = $game->imgName;
+            } else if ($request->inputSwitchImg == "own_img" && $request->hasFile('imgTournament') && $request->file('imgTournament')->isValid()) {
+                $imgName = "tournamentAffiche" . time() . "." . $request->imgTournament->getClientOriginalExtension();
+                $request->file('imgTournament')->move(public_path('upload'), $imgName);
+                $tournament->imgName = $imgName;
+            }
+
             $tournament->save();
 
         } else if ($request->commande == "update"){
