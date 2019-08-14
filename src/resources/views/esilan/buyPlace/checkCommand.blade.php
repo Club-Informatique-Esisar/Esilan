@@ -1,4 +1,4 @@
-@extends('layouts.globalEsilan')
+@extends('layouts.esilan.globalEsilan')
 
 @section('pageTitle')
 - Votre commande est validé !
