@@ -1,4 +1,4 @@
-@extends('layouts.showEsilan')
+@extends('layouts.esilan.twoColumnEsilan')
 
 @section('pageTitle')
 - {{$esilan->name}}
