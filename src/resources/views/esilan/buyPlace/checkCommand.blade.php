@@ -1,10 +1,10 @@
-@extends('layouts.showEsilan')
+@extends('layouts.globalEsilan')
 
 @section('pageTitle')
 - Votre commande est validé !
 @endsection
 
-@section('page-body')
+@section('pageBody')
 <section id="page-body">
     <div class="container body-content clearfix">
         <h2>Commande</h2>

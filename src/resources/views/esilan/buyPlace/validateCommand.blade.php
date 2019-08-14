@@ -1,10 +1,10 @@
-@extends('layouts.showEsilan')
+@extends('layouts.esilan.globalEsilan')
 
 @section('pageTitle')
 - Panier
 @endsection
 
-@section('page-body')
+@section('pageBody')
 <section id="page-body">
     <div class="container body-content clearfix">
         <h2>Réserver sa place !</h2>

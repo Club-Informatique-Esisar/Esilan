@@ -1,24 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.globalEsilan')
 
-@section('content')
-  <section id="page-header" style="background: url('{{ url("upload/$esilan->imgName") }}') no-repeat 0 16%; background-size: cover;">
-    <div class="bg-hover">
-        <div class="container header-content clearfix">
-            {{-- <a href="{{ 'upload/'.$esilan->img }}" target="_blank" data-jbox-image="gallery1"> --}}
-              {{ HTML::image('upload/'.$esilan->imgName, $esilan->imgName.' logo', array( 'width' => 160, 'height' => 212, 'class' => 'img-fullable' )) }}
-            {{-- </a> --}}
-            <article>
-                <h2>{{ $esilan->name }}</h2>
-                <span class="date">Du {{ ucfirst($esilan->beginDate->formatLocalized("%A %e %B %Y")) }} au {{ ucfirst($esilan->endDate->formatLocalized("%A %e %B %Y")) }}</span>
-            </article>
-        </div>
-      </div>
-  </section>
-
+@section('pageBody')
   <section id="page-body">
+    <nav class="menu-nav">
+      <div class="container nav-content clearfix">
+        @yield('menuBar')
+      </div>
+    </nav>
     <div class="container body-content clearfix">
 
-      @yield('menuBar')
 
       <div class="col-left">
         {{-- Display left column content : LAN | Inscriptions | Tournament --}}
@@ -60,5 +50,7 @@
           </aside>
         @endforeach
       </div>
+    </div>
+  </section>
 
 @endsection
