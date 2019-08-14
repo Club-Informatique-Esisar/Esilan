@@ -2,19 +2,24 @@
 
 @section('pageBody')
   <section id="page-body">
+
+    {{-- Nav bar --}}
     <nav class="menu-nav">
       <div class="container nav-content clearfix">
         @yield('menuBar')
       </div>
     </nav>
+
+
     <div class="container body-content clearfix">
 
-
+      {{-- Left content --}}
       <div class="col-left">
         {{-- Display left column content : LAN | Inscriptions | Tournament --}}
         @yield('leftContent')
       </div>
 
+      {{-- Right content with ticket type  --}}
       <div class="col-right">
         {{-- Displaying all tickets --}}
           @foreach ($esilan->ticketTypes()->orderBy('id')->get() as $ticketType)
