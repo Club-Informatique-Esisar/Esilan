@@ -1,4 +1,4 @@
-@extends('layouts.globalEsilan')
+@extends('layouts.esilan.globalEsilan')
 
 @section('pageBody')
   <section id="page-body">
