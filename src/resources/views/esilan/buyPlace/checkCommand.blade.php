@@ -13,7 +13,6 @@
                 <li><a href="{{url("/esilan/".$esilan->id."?page=home") }}">Accueil</a></li>
                 <li><a href="{{url("/esilan/".$esilan->id."?page=register") }}">Inscription</a></li>
                 <li><a href="{{url("/esilan/".$esilan->id."?page=tournament") }}">Tournois</a></li>
-                <li><a href="{{url("/esilan/".$esilan->id."?page=maps") }}">Plan d'accès</a></li>
             </ul>
         </div>
     </nav>
