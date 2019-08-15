@@ -472,6 +472,16 @@ section#page-body .body-content h2 {
     font-weight: normal;
 }
 
+section#page-body .body-content h3 {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 15px 0 15px 0;
+    font-weight: normal;
+}
+
 
 section#page-body .body-content aside .post-content,
 section#page-body .body-content article .post-content {
