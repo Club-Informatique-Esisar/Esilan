@@ -482,6 +482,9 @@ section#page-body .body-content h3 {
     font-weight: normal;
 }
 
+section#page-body .body-content .small {
+    font-size: 0.8em;
+}
 
 section#page-body .body-content aside .post-content,
 section#page-body .body-content article .post-content {
@@ -542,6 +545,48 @@ a.button-reservation{
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
+}
+
+/*************************************
+ * PAGE BODY ESILAN INSCRIPTION TAB 
+ * * * * * * * * * * * * * * */
+
+.gamer-list article.gamer-item  {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 12px 12px;
+    overflow: hidden;
+}
+
+.gamer-list article.gamer-item img {
+    width: 150px;
+    height: auto;
+}
+
+.gamer-list article.gamer-item legend {
+    border-bottom: 1px solid #999;
+    bottom: -1px;
+    font-size: 11px;
+    left: 0;
+    line-height: 16px;
+    padding: 8px 5px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.8);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gamer-list article.gamer-item legend h4, .gamer-list article.gamer-item legend p {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 5px;
+    padding: 0;
 }
 
 /************************************************

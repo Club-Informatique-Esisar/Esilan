@@ -29,6 +29,8 @@
 @endsection
 
 
+{{-- PAGE == HOME --}}
+@if($page == "home")
 @section('leftContent')
         <h2>Description</h2>
         <article class="clearfix">
@@ -37,3 +39,28 @@
           </div>
         </article>
 @endsection
+
+
+{{-- PAGE == REGISTER --}}
+@elseif($page == "register")
+@section('leftContent')
+        <h2>Liste des inscrits</h2>
+
+        @foreach($esilan->ticketTypes as $tt)
+        <h3>{{ $tt->name }} - <span class="small">{{ $tt->nbSales() }} places vendus sur {{ $tt->maxTicket }}</span></h3>
+
+        <div class="gamer-list" comment="grid">
+          {{-- Glue @for to <article> to get ride of blank space due to "inline-block" css rules --}}
+          @foreach ($tt->tickets as $t)<article class="gamer-item">
+            <a href="#">
+              <img src="{{ asset('img/pattern.png') }}" alt="pseudal" />
+              <legend>
+                <h4>{{ $t->gamer->name }}</h4>
+                {{-- <p></p> --}}
+              </legend>
+            </a>
+          </article>@endforeach
+        </div>
+        @endforeach
+@endsection
+@endif
