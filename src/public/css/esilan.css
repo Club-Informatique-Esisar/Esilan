@@ -397,10 +397,70 @@ section#page-header .header-content article .date {
 /************************************************
  * PAGE BODY
  ************************************************/
-section#page-body{
-    padding-top: 25px;
+
+/*****************
+ * PAGE BODY NAV 
+ * * * * * * * * */
+section#page-body nav.menu-nav {
+    background-color: #2c2c2c;
+    border-top: 4px solid #1e1e1e;
+    margin-bottom: 25px;
+    -webkit-box-shadow: inset 0 -5px 10px #1e1e1e, inset 0 4px 0 -3px #373737;
+       -moz-box-shadow: inset 0 -5px 10px #1e1e1e, inset 0 4px 0 -3px #373737;
+            box-shadow: inset 0 -5px 10px #1e1e1e, inset 0 4px 0 -3px #373737;
 }
 
+section#page-body nav.menu-nav .nav-content {
+    color: #ddd;
+    display: block;
+    font-size: 16px;
+}
+
+section#page-body nav.menu-nav .nav-content .pull-right {
+    padding: 10px 14px 0px;
+}
+
+section#page-body nav.menu-nav ul {
+    font-family: "Lucida Grande","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0;
+    margin: 0 auto;
+    width: 960px;
+    list-style-type: none;
+    padding: 0;
+}
+
+section#page-body nav.menu-nav ul li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+section#page-body nav.menu-nav ul li .link,
+section#page-body nav.menu-nav ul li a {
+    color: #ddd;
+    display: block;
+    font-size: 16px;
+    padding: 16px 14px 20px;
+}
+
+section#page-body nav.menu-nav ul li:not(.active) .link,
+section#page-body nav.menu-nav ul li:not(.active) a {
+    text-shadow: 0 1px 0 #000;
+}
+
+section#page-body nav.menu-nav ul li a:hover {
+    color: #fff;
+    background: #1e1e1e;
+}
+
+section#page-body nav.menu-nav ul li.active a:hover,
+section#page-body nav.menu-nav ul li.active a {
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, #fff, #e5e5e5);
+    background-repeat: repeat-x;
+    box-shadow: 0 -4px 0 #fff;
+    color: #2e81b0;
+    cursor: default;
+}
 
 section#page-body .body-content h2 {
     font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
