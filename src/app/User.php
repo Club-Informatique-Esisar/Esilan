@@ -65,4 +65,9 @@ class User extends Authenticatable
         return false;
     }
 
+    public function fullImgPathOrDefault(){
+        if (is_null($this->imgName)) return "img/default_avater.png";
+        return "upload/".$this->imgName;
+    }
+
 }
