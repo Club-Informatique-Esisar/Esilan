@@ -36,4 +36,9 @@ class Tournament extends Model
         }
         return false;
     }
+
+    public function fullImgPathOrDefault(){
+        if (is_null($this->imgName)) return "img/default_avatar.png";
+        return "upload/".$this->imgName;
+    }
 }
