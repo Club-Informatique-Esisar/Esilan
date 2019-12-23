@@ -34,7 +34,7 @@ class TicketController extends Controller
 
         if ($esilan == null){
             return redirect('/esilan');
-        } else if (Auth::user()->isAlreadyRegisterToEsilan($esilan->id)){
+        } else if (Auth::user()->isRegisterToEsilan($esilan->id)){
             return redirect("/esilan/$esilan->id");
         } else {
             return view('esilan.buyPlace.validateCommand',array('esilan' => $esilan, 'ticketType' => $ticketType));
@@ -52,7 +52,7 @@ class TicketController extends Controller
         $newTicket->idTicketType = $id_ticketType;
         $esilan = $newTicket->ticketType->esilan;
         
-        if (Auth::user()->isAlreadyRegisterToEsilan($newTicket->ticketType->esilan->id)){
+        if (Auth::user()->isRegisterToEsilan($newTicket->ticketType->esilan->id)){
             return redirect('/esilan');
         } else {
             $newTicket->save();

@@ -40,7 +40,7 @@
               @guest
               <p><i>Vous devez être connecté pour réserver cette place =)</i></p>
               @else
-                @if(Auth::user()->isAlreadyRegisterToEsilan($esilan->id))
+                @if(Auth::user()->isRegisterToEsilan($esilan->id))
                   <button class="disabled">Déjà inscrit</button>
                 @elseif($ticketType->nbTicketAvailable() <= 0 || new DateTime() > new DateTime($esilan->beginDate))
                   <button class="disabled">Inscriptions fermées</button>
