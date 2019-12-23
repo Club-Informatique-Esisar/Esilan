@@ -80,7 +80,7 @@
                         </table>
                     </div>
                     <div class="valid-order">
-                        <input id="place-order" class="btn" name="button" type="submit" value="Valider l'inscription" />
+                        <input id="place-order" class="btn btn-blue" name="button" type="submit" value="Valider l'inscription" />
                     </div>
                     
                 </form>

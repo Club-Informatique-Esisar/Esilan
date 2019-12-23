@@ -79,11 +79,8 @@ a {
 
 button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button {
     text-decoration: none;
-    background-color: #428bca;
-    border-color: #357ebd;
     border-style: solid;
     border-width: 1px;
-    color: #fff !important;
     text-shadow: none;
     box-shadow: 0 1px 0 rgba(0,0,0,0.09);
     display: inline-block;
@@ -93,17 +90,36 @@ button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button {
     cursor: pointer;
 }
 
-button:hover, 
-input[type="submit"].btn:hover, 
-input[type="submit"].button:hover, 
-a.btn:hover, 
-a.button:hover {
+.btn-blue {
+    background-color: #428bca ;
+    border-color: #357ebd ; 
+    color: #fff !important;
+}
+
+.btn-grey {
+    background-color: #cecece;
+    border-color: #949494; 
+    color: black !important;
+}
+
+.btn-blue:hover {
     background-color: #236388;
     border-bottom: 1px solid #19465f;
     cursor: pointer;
 }
+.btn-grey:hover {
+    background-color: #707070;
+    color: white !important;;
+    cursor: pointer;
+}
 
 button.disabled{
+    color: #bbb !important;
+    cursor: default !important;
+    background-color: #428bca !important;
+    border-bottom: none !important;
+}
+.btn-grey.disabled{
     color: #bbb !important;
     cursor: default !important;
     background-color: #428bca !important;

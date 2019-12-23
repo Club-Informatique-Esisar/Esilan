@@ -45,7 +45,7 @@
                 @elseif($ticketType->nbTicketAvailable() <= 0 || new DateTime() > new DateTime($esilan->beginDate))
                   <button class="disabled">Inscriptions fermées</button>
                 @else
-                  <a class="btn" href="{{ route('buyPlace', ['idEsilan' => $esilan->id, 'ticketTypeName' => $ticketType->name ]) }}" class="button-reservation">
+                  <a class="btn btn-blue" href="{{ route('buyPlace', ['idEsilan' => $esilan->id, 'ticketTypeName' => $ticketType->name ]) }}" class="button-reservation">
                     Réserver cette place !
                   </a>
                 @endif

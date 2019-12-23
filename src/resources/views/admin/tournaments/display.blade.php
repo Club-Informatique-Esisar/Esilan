@@ -23,7 +23,7 @@
     @endforeach
         </select>
 
-        <input type="submit" class="button button-primary" value="Afficher les tournois">
+        <input type="submit" class="button btn-blue" value="Afficher les tournois">
     </form>
 
     @if($esilan)

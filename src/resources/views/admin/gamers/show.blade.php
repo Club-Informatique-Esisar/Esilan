@@ -11,7 +11,7 @@
         <input type="hidden" name="idUser" value="{{ $user->id }}">
 
         <div class="valid-order">
-            <input id="place-order" class="btn" name="button" type="submit" value="Modifier" />
+            <input id="place-order" class="btn btn-blue" name="button" type="submit" value="Modifier" />
         </div>
 
         <!-- USER -->

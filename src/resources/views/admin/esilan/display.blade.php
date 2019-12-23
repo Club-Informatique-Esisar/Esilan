@@ -8,7 +8,7 @@
 <div class="container">
     <h2>Listes des Esilan</h2>
 
-    <a class="btn" href="{{ url('/admin/esilan/new') }}">Créer une nouvelle Esilan</a>
+    <a class="btn btn-blue" href="{{ url('/admin/esilan/new') }}">Créer une nouvelle Esilan</a>
 
     <table id="table" class="cell-border hover stripe">
         <thead>
