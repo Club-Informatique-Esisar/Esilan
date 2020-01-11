@@ -77,7 +77,7 @@ a {
     text-align: right;
 }
 
-button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button {
+button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button, span.btn {
     text-decoration: none;
     border-style: solid;
     border-width: 1px;
@@ -102,6 +102,25 @@ button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button {
     color: black !important;
 }
 
+.txt-cancel {
+    cursor: pointer;
+    font-style: italic;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+.btn-cancel-cancel {
+    background-color: #cecece;
+    border-color: #949494; 
+    color: black !important;
+}
+
+.btn-confirm-cancel {
+    background-color: #b30000;
+    border-color: #af0000; 
+    color: white !important;
+}
+
 .btn-blue:hover {
     background-color: #236388;
     border-bottom: 1px solid #19465f;
@@ -113,17 +132,22 @@ button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button {
     cursor: pointer;
 }
 
-button.disabled{
-    color: #bbb !important;
+button.disabled,
+.btn.disabled
+{
     cursor: default !important;
-    background-color: #428bca !important;
     border-bottom: none !important;
 }
-.btn-grey.disabled{
+
+button.btn-blue.disabled,
+.btn.btn-blue.disabled{
     color: #bbb !important;
-    cursor: default !important;
     background-color: #428bca !important;
-    border-bottom: none !important;
+}
+button.btn-grey.disabled,
+.btn.btn-grey.disabled{
+    color: rgb(75, 75, 75) !important;
+    background-color: #cecece !important;
 }
 
 input[type="checkbox"] {
