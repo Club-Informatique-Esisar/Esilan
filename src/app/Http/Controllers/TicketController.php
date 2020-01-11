@@ -55,6 +55,33 @@ class TicketController extends Controller
             return view('esilan.buyPlace.editCommand',array('esilan' => $esilan, 'ticketType' => $ticketType));
         }
     }
+
+    public function deletePlace($idEsilan, $ticketTypeName)
+    {
+        // TODO : User must not delete place validated by admin
+        $esilan = Esilan::find($idEsilan);
+        $ticketType = TicketType::where('idEsilan', $idEsilan)->where('name', $ticketTypeName)->first();
+
+        if ($esilan == null || $ticketType == null){
+            return redirect('/esilan');
+        } else if (!Auth::user()->ownTicketType($ticketType->id)){
+            return redirect("/esilan/$esilan->id");
+        } else {
+            // TODO : Check if there is no security issues since there is no verification
+            // Delete all participation of player to tournament
+            foreach ($ticketType->tournaments as $tournament) {
+                DB::table('tournament_participations')->where([
+                    ['idGamer', '=', Auth::user()->id],
+                    ['idTournament', '=', $tournament->id],
+                ])->delete();
+            }
+            DB::table('tickets')->where([
+                ['idGamer', '=', Auth::user()->id],
+                ['idTicketType', '=', $ticketType->id],
+            ])->delete();
+            return redirect("/esilan/$esilan->id");
+        }
+    }
     public function validateCommand(Request $request){
         // TODO: Add validator
         $id_ticketType = $request->input('ticketType');

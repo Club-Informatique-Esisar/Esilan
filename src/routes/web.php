@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function(){
     ->name('buyPlace');
     Route::get('/esilan/{idEsilan}/editPlace/{ticketTypeName}', 'TicketController@editPlace')
     ->name('editPlace');
+    Route::get('/esilan/{idEsilan}/deletePlace/{ticketTypeName}', 'TicketController@deletePlace')
+    ->name('deletePlace');
     Route::post('/commande', 'TicketController@validateCommand');
 });
 
