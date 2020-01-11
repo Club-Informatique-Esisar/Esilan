@@ -83,6 +83,18 @@ class User extends Authenticatable
         return false;
     }
     
+    public function canRegisterToTournament($idTournament){
+        $tournament = Tournament::find($idTournament);
+        foreach($this->tickets as $ticket){
+            foreach($ticket->ticketType->tournaments as $tournament){
+                if ($tournament->id == $idTournament){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public function fullImgPathOrDefault(){
         if (is_null($this->imgName)) return "img/default_avater.png";
         return "upload/".$this->imgName;
