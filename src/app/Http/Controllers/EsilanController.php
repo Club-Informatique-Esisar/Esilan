@@ -61,13 +61,15 @@ class EsilanController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $esilan = Esilan::find($id);
         if ($esilan == null){
             return redirect('/esilan');
         }
-        return view('esilan.show',array('esilan' => $esilan));
+        $page = is_null($request->page) ? "home" : $request->page;
+        $page = ($page != "home" && $page != "register" && $page != "tournament") ? "home" : $page;
+        return view('esilan.show',array('esilan' => $esilan, 'page' => $page));
     }
 
     /**
