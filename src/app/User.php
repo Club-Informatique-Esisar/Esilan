@@ -74,6 +74,15 @@ class User extends Authenticatable
         return false;
     }
 
+    public function isRegisterToTournament($idTournament){
+        foreach($this->participations as $p){
+            if ($p->id == $idTournament){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public function fullImgPathOrDefault(){
         if (is_null($this->imgName)) return "img/default_avater.png";
         return "upload/".$this->imgName;
