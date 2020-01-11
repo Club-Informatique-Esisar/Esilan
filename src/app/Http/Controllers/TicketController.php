@@ -32,7 +32,7 @@ class TicketController extends Controller
         $esilan = Esilan::find($idEsilan);
         $ticketType = TicketType::where('idEsilan', $idEsilan)->where('name', $ticketTypeName)->first();
 
-        if ($esilan == null){
+        if ($esilan == null || $ticketType == null){
             return redirect('/esilan');
         } else if (Auth::user()->isRegisterToEsilan($esilan->id)){
             return redirect("/esilan/$esilan->id");
