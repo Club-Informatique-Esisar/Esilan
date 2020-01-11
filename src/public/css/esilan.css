@@ -703,6 +703,15 @@ a.button-reservation{
     margin: 10px;
 }
 
+#checkout-detail .sub-product * {
+    vertical-align: middle;
+}
+
+#checkout-detail .sub-product img {
+    max-width : 42px;
+    max-height: 59px;
+}
+
 fieldset {
     border: 1px solid #e0dadf;
 }
