@@ -82,6 +82,10 @@ class TicketController extends Controller
             return redirect("/esilan/$esilan->id");
         }
     }
+
+    /**
+     * Call from /commande route
+     */
     public function validateCommand(Request $request){
         // TODO: Add validator
         $id_ticketType = $request->input('ticketType');
