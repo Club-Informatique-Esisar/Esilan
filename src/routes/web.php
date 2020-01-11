@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('profile', 'EsilanController@index')->name('profile');
     Route::get('/esilan/{idEsilan}/buyPlace/{ticketTypeName}', 'TicketController@buyPlace')
     ->name('buyPlace');
+    Route::get('/esilan/{idEsilan}/editPlace/{ticketTypeName}', 'TicketController@editPlace')
+    ->name('editPlace');
     Route::post('/commande', 'TicketController@validateCommand');
 });
 

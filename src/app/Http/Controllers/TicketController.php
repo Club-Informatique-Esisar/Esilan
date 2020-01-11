@@ -41,6 +41,20 @@ class TicketController extends Controller
         }
     }
 
+    public function editPlace($idEsilan, $ticketTypeName)
+    {
+        $esilan = Esilan::find($idEsilan);
+        $ticketType = TicketType::where('idEsilan', $idEsilan)->where('name', $ticketTypeName)->first();
+
+        
+        if ($esilan == null || $ticketType == null){
+            return redirect('/esilan');
+        } else if (!Auth::user()->ownTicketType($ticketType->id)){
+            return redirect("/esilan/$esilan->id");
+        } else {
+            return view('esilan.buyPlace.editCommand',array('esilan' => $esilan, 'ticketType' => $ticketType));
+        }
+    }
     public function validateCommand(Request $request){
         // TODO: Add validator
         $id_ticketType = $request->input('ticketType');
