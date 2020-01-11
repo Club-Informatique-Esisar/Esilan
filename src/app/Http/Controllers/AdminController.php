@@ -326,6 +326,16 @@ class AdminController extends Controller
             $tournament->name = $request->titletournament;
             $tournament->beginDate = Carbon::createFromFormat('Y-m-d H:i',$request->beginDate." ".$request->beginTime);
             $tournament->endDate = Carbon::createFromFormat('Y-m-d H:i',$request->endDate." ".$request->endTime);
+
+            if ($request->inputSwitchImg == "game_img") {
+                $game = Game::find($request->idGameTournament);
+                $tournament->imgName = $game->imgName;
+            } else if ($request->inputSwitchImg == "own_img" && $request->hasFile('imgTournament') && $request->file('imgTournament')->isValid()) {
+                $imgName = "tournamentAffiche" . time() . "." . $request->imgTournament->getClientOriginalExtension();
+                $request->file('imgTournament')->move(public_path('upload'), $imgName);
+                $tournament->imgName = $imgName;
+            }
+            
             $tournament->save();
 
             $tournament->esilan()->associate($request->idEsilanTournament);
