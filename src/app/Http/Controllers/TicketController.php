@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Esilan;
@@ -90,6 +91,7 @@ class TicketController extends Controller
         // TODO: Add validator
         $id_ticketType = $request->input('ticketType');
         $id_tournaments = $request->input('tournaments');
+        $editOrRegister = $request->input('editOrRegister');
 
         $newTicket = new Ticket();
         $newTicket->dateCreation = new DateTime();
@@ -97,9 +99,7 @@ class TicketController extends Controller
         $newTicket->idTicketType = $id_ticketType;
         $esilan = $newTicket->ticketType->esilan;
         
-        if (Auth::user()->isRegisterToEsilan($newTicket->ticketType->esilan->id)){
-            return redirect('/esilan');
-        } else {
+        if ($editOrRegister == "register" && !Auth::user()->isRegisterToEsilan($newTicket->ticketType->esilan->id)){
             $newTicket->save();
             $participations = array();
 
@@ -110,7 +110,37 @@ class TicketController extends Controller
                 $newParticipation->save();
                 $participations[] = $newParticipation;
             }
+
+            
             return view('esilan.buyPlace.checkCommand', array('esilan'=>$esilan, 'ticket' => $newTicket, 'participations' => $participations));
+        } else if($editOrRegister == "edit" && Auth::user()->isRegisterToEsilan($newTicket->ticketType->esilan->id)){
+            // Get original Ticket
+            $originalTicket = Ticket::where([
+                ['idTicketType', $id_ticketType],
+                ['idGamer', Auth::id()],
+            ])->first();
+            // Deleting all participation 
+            foreach ($originalTicket->ticketType->tournaments as $tournament) {
+                DB::table('tournament_participations')->where([
+                    ['idGamer', '=', Auth::user()->id],
+                    ['idTournament', '=', $tournament->id],
+                ])->delete();
+            }
+
+            // Readding it
+            $participations = array();
+
+            foreach((array) $id_tournaments as $idTournament){
+                $newParticipation = new TournamentParticipation();
+                $newParticipation->idGamer = Auth::id();
+                $newParticipation->idTournament = $idTournament;
+                $newParticipation->save();
+                $participations[] = $newParticipation;
+            }
+
+            return view('esilan.buyPlace.checkCommand', array('esilan'=>$esilan, 'ticket' => $newTicket, 'participations' => $participations));
+        } else {
+            return redirect('/esilan');
         }
 
 
