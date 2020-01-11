@@ -629,6 +629,55 @@ a.button-reservation{
     padding: 0;
 }
 
+/*************************************
+ * PAGE BODY ESILAN TOURNEMENT TAB 
+ * * * * * * * * * * * * * * */
+
+ section#page-body .body-content .tournament-list .tournament-item {
+    display: grid;
+    grid-template-rows: 200px auto;
+    grid-template-columns: 150px auto;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item figure {
+    padding: 0;
+    margin: 0;
+}
+section#page-body .body-content .tournament-list div.tournament-item figure img{
+    width: 100%;
+    height: 100%;
+}
+section#page-body .body-content .tournament-list div.tournament-item div.text {
+    padding: 15px;
+    position: relative;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text h3 {
+    margin: 0;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text h3 .time {
+    font-size: 0.8em;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text .bottom {
+    position: absolute;
+    bottom: 15px;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text .bottom p{
+    font-size: 15px;
+}
+
 /************************************************
  * FULL SCREEN IMAGE
  ************************************************/
