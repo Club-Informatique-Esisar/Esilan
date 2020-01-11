@@ -17,9 +17,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/esilan', 'EsilanController@index');
 Route::get('/esilan/{id}', 'EsilanController@show');
 
-Route::get('/tournaments', 'TournamentsController@index');
-Route::get('/tournaments/{id}', 'TournamentsController@show');
-
 Route::get('/faq', 'FAQController@show');
 
 Route::middleware(['auth'])->group(function(){
