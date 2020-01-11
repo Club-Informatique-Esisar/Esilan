@@ -338,7 +338,6 @@ class AdminController extends Controller
             
             $tournament->save();
 
-            $tournament->esilan()->associate($request->idEsilanTournament);
             $tournament->game()->associate($request->idGameTournament);
             
         } else if ($request->commande == "remove") {
