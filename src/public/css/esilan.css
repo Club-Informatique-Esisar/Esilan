@@ -402,6 +402,122 @@ article.product .ribbon-end {
 }
 
 /************************************************
+ * CONTENT DISPLAY ESILAN
+ ************************************************/
+
+section#display-esilan {
+    margin-top: 30px;
+}
+
+section#display-esilan .esilan-list {
+    width: 90%;
+    margin: auto;
+}
+
+section#display-esilan .esilan-list .esilan-item {
+    display: grid;
+    height: 220px;
+    grid-template-rows: 220px;
+    grid-template-columns: 150px auto;
+
+    border: 4px solid #bcbcbc;
+    padding: 10px;
+    background: #F7F7F7;
+    margin-bottom: 20px;
+}
+
+section#display-esilan .esilan-list .esilan-item.inactive {
+    opacity: 0.5;
+}
+
+section#display-esilan .esilan-list .esilan-item figure img {
+    width: 100%;
+    height: 100%;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right {
+    display: grid;
+    grid-template-rows: auto 152px;
+    grid-template-columns: auto;
+    padding-left: 15px;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .top {
+    display: grid;
+    grid-template-columns: auto 20%;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .top .text * { margin: 0; }
+section#display-esilan .esilan-list .esilan-item div.right .top .text h2 { font-weight: bold; }
+section#display-esilan .esilan-list .esilan-item div.right .top .text p {
+    font-size: 20px;
+    line-height: 25px;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament {
+    display: inline-block;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid black;
+    box-sizing: border-box;
+    position: relative;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament:hover {
+    box-shadow: 0px 0px 5px black;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament figure {
+    height: 140px;
+    width: calc(140px*(21/29.7));
+    margin: 0 5px 0 0;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament div:first-child {
+    margin: 5px 0 5px 5px;
+    display: flex;
+    justify-content: left;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament div.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament:hover div.overlay {
+    visibility: visible;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament .overlay p {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 72%;
+    height: 20%;
+    margin: auto;
+    font-size: 20px;    
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 1px black, 0 0 2px black, 0 0 3px black;
+}
+
+section#display-esilan .esilan-list .esilan-item:hover { 
+    cursor: pointer;
+    border: 4px solid
+    #7d7d7d;
+    box-shadow: 2px 2px 10px #7d7d7d;
+}
+section#display-esilan .esilan-list .esilan-item div.right .top .text:hover * { text-decoration: underline; }
+
+/************************************************
  * PAGE HEADER
  ************************************************/
 section#page-header {
