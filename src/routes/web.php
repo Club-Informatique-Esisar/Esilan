@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// http://puu.sh/ATDa5/10a7020978.png
 
 Auth::routes();
 
