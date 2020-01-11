@@ -56,6 +56,15 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Tournament', 'tournament_participations', 'idGamer','idTournament');
     }
 
+    public function ownTicketType($idTicketType){
+        foreach($this->tickets as $ticket){
+            if ($ticket->ticketType->id == $idTicketType){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function isRegisterToEsilan($idLan){
         foreach($this->tickets as $ticket){
             if ($ticket->ticketType->esilan->id == $idLan){
