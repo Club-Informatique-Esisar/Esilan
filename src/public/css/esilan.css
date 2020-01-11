@@ -72,6 +72,9 @@ a {
 .red {
     color: rgb(202, 21, 21) !important;
 }
+.left{
+    float: left;
+}
 
 .text-right{
     text-align: right;
@@ -167,6 +170,12 @@ input[type="checkbox"] {
     border-left: 4px solid #7ad03a;
 }
 
+.italic {
+    font-style: italic;
+}
+
+.p0 {padding: 0;}
+.m0 {margin: 0;}
 /****************************************************************
  * HEADER
  ****************************************************************/
