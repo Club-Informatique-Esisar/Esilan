@@ -41,12 +41,11 @@
                                 <legend>Tournois</legend>
                                 <div>
                                     @forelse ($ticketType->tournaments as $tournament)
-                                    @if ($loop->first)
-                                        <p>Voulez vous également vous inscrire à un tournoi ?</p>
-                                    @endif
                                         <div class="sub-product">
-                                        <input id="{{ $tournament->name }}" type="checkbox" name="{{ "tournaments[$tournament->id]" }}" value="{{$tournament->id}}"/>
-                                            <label for="{{ $tournament->name }}">{{ $tournament->name }}</label>
+                                            <input id="{{ $tournament->name }}" type="checkbox" name="{{ "tournaments[$tournament->id]" }}" value="{{$tournament->id}}"/>
+                                            <label for="{{ $tournament->name }}">
+                                                <img src="{{ asset($tournament->fullImgPathOrDefault()) }}">
+                                                {{ $tournament->name }}</label>
                                         </div>
                                     @empty
                                         <p>Aucun tournois n'est disponible pour ce ticket d'Esilan.</p>
