@@ -8,7 +8,7 @@
 <div class="container">
     <h2>Listes des Jeux</h2>
 
-    <a class="btn" href="{{ url('/admin/games/new') }}">Renseigner un nouveau jeu</a>
+    <a class="btn btn-blue" href="{{ url('/admin/games/new') }}">Renseigner un nouveau jeu</a>
 
     <table id="table" class="cell-border hover stripe">
         <thead>

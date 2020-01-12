@@ -56,13 +56,48 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Tournament', 'tournament_participations', 'idGamer','idTournament');
     }
 
-    public function isAlreadyRegisterToEsilan($idLan){
+    public function ownTicketType($idTicketType){
+        foreach($this->tickets as $ticket){
+            if ($ticket->ticketType->id == $idTicketType){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function isRegisterToEsilan($idLan){
         foreach($this->tickets as $ticket){
             if ($ticket->ticketType->esilan->id == $idLan){
                 return true;
             }
         }
         return false;
+    }
+
+    public function isRegisterToTournament($idTournament){
+        foreach($this->participations as $p){
+            if ($p->id == $idTournament){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public function canRegisterToTournament($idTournament){
+        $tournament = Tournament::find($idTournament);
+        foreach($this->tickets as $ticket){
+            foreach($ticket->ticketType->tournaments as $tournament){
+                if ($tournament->id == $idTournament){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public function fullImgPathOrDefault(){
+        if (is_null($this->imgName)) return "img/default_avater.png";
+        return "upload/".$this->imgName;
     }
 
 }

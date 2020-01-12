@@ -15,22 +15,42 @@ body {
 
 .container {
     display: block;
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
 .container .col-left {
     display: block;
     float: left;
-    width: 700px;
+    max-width: 700px;
     margin: 0 0 0 auto;
 }
 
 .container .col-right {
     display: block;
     float: right;
-    width: 240px;
+    max-width: 240px;
     margin: 0 auto 0 20px;
+}
+
+h2 {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 26px;
+    line-height: 32px;
+    -ms-word-wrap: break-word;
+        word-wrap: break-word;
+    margin: 0 0 15px 0;
+    font-weight: normal;
+}
+
+h3 {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 15px 0 15px 0;
+    font-weight: normal;
 }
 
 a {
@@ -52,18 +72,18 @@ a {
 .red {
     color: rgb(202, 21, 21) !important;
 }
+.left{
+    float: left;
+}
 
 .text-right{
     text-align: right;
 }
 
-button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button {
+button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button, span.btn {
     text-decoration: none;
-    background-color: #428bca;
-    border-color: #357ebd;
     border-style: solid;
     border-width: 1px;
-    color: #fff !important;
     text-shadow: none;
     box-shadow: 0 1px 0 rgba(0,0,0,0.09);
     display: inline-block;
@@ -73,21 +93,64 @@ button, input[type="submit"].btn, input[type="submit"].button, a.btn, a.button {
     cursor: pointer;
 }
 
-button:hover, 
-input[type="submit"].btn:hover, 
-input[type="submit"].button:hover, 
-a.btn:hover, 
-a.button:hover {
+.btn-blue {
+    background-color: #428bca ;
+    border-color: #357ebd ; 
+    color: #fff !important;
+}
+
+.btn-grey {
+    background-color: #cecece;
+    border-color: #949494; 
+    color: black !important;
+}
+
+.txt-cancel {
+    cursor: pointer;
+    font-style: italic;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+.btn-cancel-cancel {
+    background-color: #cecece;
+    border-color: #949494; 
+    color: black !important;
+}
+
+.btn-confirm-cancel {
+    background-color: #b30000;
+    border-color: #af0000; 
+    color: white !important;
+}
+
+.btn-blue:hover {
     background-color: #236388;
     border-bottom: 1px solid #19465f;
     cursor: pointer;
 }
+.btn-grey:hover {
+    background-color: #707070;
+    color: white !important;;
+    cursor: pointer;
+}
 
-button.disabled{
-    color: #bbb !important;
+button.disabled,
+.btn.disabled
+{
     cursor: default !important;
-    background-color: #428bca !important;
     border-bottom: none !important;
+}
+
+button.btn-blue.disabled,
+.btn.btn-blue.disabled{
+    color: #bbb !important;
+    background-color: #428bca !important;
+}
+button.btn-grey.disabled,
+.btn.btn-grey.disabled{
+    color: rgb(75, 75, 75) !important;
+    background-color: #cecece !important;
 }
 
 input[type="checkbox"] {
@@ -107,6 +170,12 @@ input[type="checkbox"] {
     border-left: 4px solid #7ad03a;
 }
 
+.italic {
+    font-style: italic;
+}
+
+.p0 {padding: 0;}
+.m0 {margin: 0;}
 /****************************************************************
  * HEADER
  ****************************************************************/
@@ -283,19 +352,19 @@ section .bg-hover {
     box-shadow: inset 0 -5px 10px #1e1e1e, inset 0 4px 0 -3px #373737;
 }
 
-article.esilan-product {
+article.product {
     display: inline-block;
     position: relative;
     width: 180px;
     margin: 10px;
 }
 
-article.esilan-product img {
+article.product img {
     width: 150px;
     height: 212px;
 }
 
-article.esilan-product legend {
+article.product legend {
     border-bottom: 1px solid #999;
     bottom: 2px;
     font-size: 11px;
@@ -310,8 +379,8 @@ article.esilan-product legend {
     width: 140px;
 }
 
-article.esilan-product legend h3,
-article.esilan-product legend p {
+article.product legend h3,
+article.product legend p {
     display: block;
     overflow: hidden;
     white-space: nowrap;
@@ -319,7 +388,7 @@ article.esilan-product legend p {
     padding: 0;
 }
 
-article.esilan-product .ribbon {
+article.product .ribbon {
     background-size: 100px;
     background-repeat: no-repeat;
     position: absolute;
@@ -329,17 +398,133 @@ article.esilan-product .ribbon {
     top: -20px;
 }
 
-article.esilan-product .ribbon-new {
+article.product .ribbon-new {
     background-image: url('/img/ribbon_new.png');
 }
 
-article.esilan-product .ribbon-full {
+article.product .ribbon-full {
     background-image: url('/img/ribbon_full.png');
 }
 
-article.esilan-product .ribbon-end {
+article.product .ribbon-end {
     background-image: url('/img/ribbon_end.png') ;
 }
+
+/************************************************
+ * CONTENT DISPLAY ESILAN
+ ************************************************/
+
+section#display-esilan {
+    margin-top: 30px;
+}
+
+section#display-esilan .esilan-list {
+    width: 90%;
+    margin: auto;
+}
+
+section#display-esilan .esilan-list .esilan-item {
+    display: grid;
+    height: 220px;
+    grid-template-rows: 220px;
+    grid-template-columns: 150px auto;
+
+    border: 4px solid #bcbcbc;
+    padding: 10px;
+    background: #F7F7F7;
+    margin-bottom: 20px;
+}
+
+section#display-esilan .esilan-list .esilan-item.inactive {
+    opacity: 0.5;
+}
+
+section#display-esilan .esilan-list .esilan-item figure img {
+    width: 100%;
+    height: 100%;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right {
+    display: grid;
+    grid-template-rows: auto 152px;
+    grid-template-columns: auto;
+    padding-left: 15px;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .top {
+    display: grid;
+    grid-template-columns: auto 20%;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .top .text * { margin: 0; }
+section#display-esilan .esilan-list .esilan-item div.right .top .text h2 { font-weight: bold; }
+section#display-esilan .esilan-list .esilan-item div.right .top .text p {
+    font-size: 20px;
+    line-height: 25px;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament {
+    display: inline-block;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid black;
+    box-sizing: border-box;
+    position: relative;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament:hover {
+    box-shadow: 0px 0px 5px black;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament figure {
+    height: 140px;
+    width: calc(140px*(21/29.7));
+    margin: 0 5px 0 0;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament div:first-child {
+    margin: 5px 0 5px 5px;
+    display: flex;
+    justify-content: left;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament div.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament:hover div.overlay {
+    visibility: visible;
+}
+
+section#display-esilan .esilan-list .esilan-item div.right .tournament-list .clickable-tournament .overlay p {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 72%;
+    height: 20%;
+    margin: auto;
+    font-size: 20px;    
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 1px black, 0 0 2px black, 0 0 3px black;
+}
+
+section#display-esilan .esilan-list .esilan-item:hover { 
+    cursor: pointer;
+    border: 4px solid
+    #7d7d7d;
+    box-shadow: 2px 2px 10px #7d7d7d;
+}
+section#display-esilan .esilan-list .esilan-item div.right .top .text:hover * { text-decoration: underline; }
 
 /************************************************
  * PAGE HEADER
@@ -397,22 +582,73 @@ section#page-header .header-content article .date {
 /************************************************
  * PAGE BODY
  ************************************************/
-section#page-body{
-    padding-top: 25px;
+
+/*****************
+ * PAGE BODY NAV 
+ * * * * * * * * */
+section#page-body nav.menu-nav {
+    background-color: #2c2c2c;
+    border-top: 4px solid #1e1e1e;
+    margin-bottom: 25px;
+    -webkit-box-shadow: inset 0 -5px 10px #1e1e1e, inset 0 4px 0 -3px #373737;
+       -moz-box-shadow: inset 0 -5px 10px #1e1e1e, inset 0 4px 0 -3px #373737;
+            box-shadow: inset 0 -5px 10px #1e1e1e, inset 0 4px 0 -3px #373737;
 }
 
-
-section#page-body .body-content h2 {
-    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 26px;
-    line-height: 32px;
+section#page-body nav.menu-nav .nav-content {
+    color: #ddd;
     display: block;
-    -ms-word-wrap: break-word;
-        word-wrap: break-word;
-    margin: 0 0 15px 0;
-    font-weight: normal;
+    font-size: 16px;
 }
 
+section#page-body nav.menu-nav .nav-content .pull-right {
+    padding: 10px 14px 0px;
+}
+
+section#page-body nav.menu-nav ul {
+    font-family: "Lucida Grande","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    padding: 0;
+}
+
+section#page-body nav.menu-nav ul li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+section#page-body nav.menu-nav ul li .link,
+section#page-body nav.menu-nav ul li a {
+    color: #ddd;
+    display: block;
+    font-size: 16px;
+    padding: 16px 14px 20px;
+}
+
+section#page-body nav.menu-nav ul li:not(.active) .link,
+section#page-body nav.menu-nav ul li:not(.active) a {
+    text-shadow: 0 1px 0 #000;
+}
+
+section#page-body nav.menu-nav ul li a:hover {
+    color: #fff;
+    background: #1e1e1e;
+}
+
+section#page-body nav.menu-nav ul li.active a:hover,
+section#page-body nav.menu-nav ul li.active a {
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, #fff, #e5e5e5);
+    background-repeat: repeat-x;
+    box-shadow: 0 -4px 0 #fff;
+    color: #2e81b0;
+    cursor: default;
+}
+
+section#page-body .body-content .small {
+    font-size: 0.8em;
+}
 
 section#page-body .body-content aside .post-content,
 section#page-body .body-content article .post-content {
@@ -475,7 +711,100 @@ a.button-reservation{
     appearance: button;
 }
 
-/* Full Screen image */
+/*************************************
+ * PAGE BODY ESILAN INSCRIPTION TAB 
+ * * * * * * * * * * * * * * */
+
+.gamer-list article.gamer-item  {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 12px 12px;
+    overflow: hidden;
+}
+
+.gamer-list article.gamer-item img {
+    width: 150px;
+    height: auto;
+}
+
+.gamer-list article.gamer-item legend {
+    border-bottom: 1px solid #999;
+    bottom: -1px;
+    font-size: 11px;
+    left: 0;
+    line-height: 16px;
+    padding: 8px 5px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.8);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gamer-list article.gamer-item legend h4, .gamer-list article.gamer-item legend p {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 5px;
+    padding: 0;
+}
+
+/*************************************
+ * PAGE BODY ESILAN TOURNEMENT TAB 
+ * * * * * * * * * * * * * * */
+
+ section#page-body .body-content .tournament-list .tournament-item {
+    display: grid;
+    grid-template-rows: 200px auto;
+    grid-template-columns: 150px auto;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item figure {
+    padding: 0;
+    margin: 0;
+}
+section#page-body .body-content .tournament-list div.tournament-item figure img{
+    width: 100%;
+    height: 100%;
+}
+section#page-body .body-content .tournament-list div.tournament-item div.text {
+    padding: 15px;
+    position: relative;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text h3 {
+    margin: 0;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text h3 .time {
+    font-size: 0.8em;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text .bottom {
+    position: absolute;
+    bottom: 15px;
+}
+
+section#page-body .body-content .tournament-list div.tournament-item div.text .bottom p{
+    font-size: 15px;
+}
+
+/************************************************
+ * FULL SCREEN IMAGE
+ ************************************************/
 .img-fullable:hover {
     opacity: 0.7;
     cursor: pointer;
@@ -545,6 +874,15 @@ a.button-reservation{
 
 #checkout-detail .sub-product {
     margin: 10px;
+}
+
+#checkout-detail .sub-product * {
+    vertical-align: middle;
+}
+
+#checkout-detail .sub-product img {
+    max-width : 42px;
+    max-height: 59px;
 }
 
 fieldset {
@@ -639,4 +977,72 @@ footer p, footer p a {
 
 footer p a:hover {
     text-decoration: underline;
+}
+
+/**********************************************************
+** Popup
+*******************************/
+
+/* mPopup box style */
+.mpopup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.mpopup-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    max-width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.mpopup-head {
+    padding: 2px 16px;
+    background-color: #ff0000;
+    color: white;
+}
+.mpopup-main {padding: 2px 16px;}
+.mpopup-foot {
+    padding: 2px 16px;
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+/* add animation effects */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* close button style */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }

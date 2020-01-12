@@ -1,15 +1,27 @@
-@extends('layouts.showEsilan')
+@extends('layouts.esilan.globalEsilan')
 
 @section('pageTitle')
 - Votre commande est validé !
 @endsection
 
-@section('page-body')
+@section('pageBody')
 <section id="page-body">
+
+    <nav class="menu-nav">
+        <div class="container nav-content clearfix">
+            <ul>
+                <li><a href="{{url("/esilan/".$esilan->id."?page=home") }}">Accueil</a></li>
+                <li><a href="{{url("/esilan/".$esilan->id."?page=register") }}">Inscription</a></li>
+                <li><a href="{{url("/esilan/".$esilan->id."?page=tournament") }}">Tournois</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
     <div class="container body-content clearfix">
         <h2>Commande</h2>
         <article class="clearfix">
-            <div class="post-content">
+            <div class="post-content clearfix">
                 <div class="alert alert-success">
                     <p>Votre commande a été validée avec succès !</p>
                     <p>Pour les règlements, nous serons disponibles <span class="bold">du lundi au jeudi, aux pauses de 10h, 12h et 15h à la cafet' !</span></p>
@@ -52,6 +64,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="valid-order">
+                    <a href="{{url("/esilan/".$esilan->id)}}" id="place-order" class="btn btn-blue">Retourner à l'Esilan</a>
                 </div>
 
             </div>

@@ -83,10 +83,17 @@ a {
 }
 
 button.disabled{
-    color: #bbb !important;
     cursor: default !important;
-    background-color: #428bca !important;
     border-bottom: none !important;
+}
+
+button.btn-blue.disabled{
+    color: #bbb !important;
+    background-color: #428bca !important;
+}
+button.btn-grey.disabled{
+    color: #bbb !important;
+    background-color: #428bca !important;
 }
 
 input[type="checkbox"] {
@@ -611,6 +618,17 @@ form .form-element input,
 form .form-element select,
 form .form-element textarea {
     width: 100%;
+}
+
+form input[type="radio"] {
+    width: auto;
+}
+form label.radio {
+    margin: 0.5em 0;
+}
+form label.radio input[type="file"] {
+    width: 50%;
+    margin-left: 1em;
 }
 
 div.ticket-type {

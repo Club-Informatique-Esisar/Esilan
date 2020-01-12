@@ -18,7 +18,7 @@
     </nav>
 
     <div class="container body-content clearfix">
-        <h2>Réserver sa place !</h2>
+        <h2>Modification de votre place</h2>
         <article class="clearfix">
             <div class="post-content clearfix">
             <form class="checkout" method="post" action="{{ url('/commande')}}">
@@ -28,11 +28,11 @@
                             <fieldset>
                                 <legend>Esilan</legend>
                                 <div>
-                                    <p>Vous avez sélectionné une place <span class="bold">{{ $ticketType->name }}</span></p>
+                                    <p>Vous possédez une place <span class="bold"> {{ $ticketType->name }}</span></p>
                                     <p class="description">{{ $ticketType->desc }}</p>
-
+                                    
                                     <input class="hidden" type="text" name="ticketType" value="{{ $ticketType->id }}"/>
-                                    <input class="hidden" type="text" name="editOrRegister" value="register"/>
+                                    <input class="hidden" type="text" name="editOrRegister" value="edit"/>
                                 </div>
                             </fieldset>
                         </div>
@@ -40,10 +40,14 @@
                             <fieldset>
                                 <legend>Tournois</legend>
                                 <div>
-                                    <p>Voulez vous également vous inscrire à un tournoi ?</p>
+                                    <p>Voulez vous également vous inscrire (ou vous désinscrire) à un tournoi ?</p>
                                     @forelse ($ticketType->tournaments as $tournament)
                                         <div class="sub-product">
+                                        @if (Auth::user()->isRegisterToTournament($tournament->id))
+                                            <input id="{{ $tournament->name }}" type="checkbox" name="{{ "tournaments[$tournament->id]" }}" value="{{$tournament->id}}" checked/>
+                                        @else
                                             <input id="{{ $tournament->name }}" type="checkbox" name="{{ "tournaments[$tournament->id]" }}" value="{{$tournament->id}}"/>
+                                        @endif
                                             <label for="{{ $tournament->name }}">
                                                 <img src="{{ asset($tournament->fullImgPathOrDefault()) }}">
                                                 {{ $tournament->name }}</label>

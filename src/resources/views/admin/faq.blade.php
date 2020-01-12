@@ -10,8 +10,8 @@
         {{ csrf_field() }}
 
         <div class="valid-order">
-            <input id="place-order" class="btn" name="button" type="submit" value="Valider" />
-            <a href="#" class="btn btn-cancel">Annuler</a>
+            <input id="place-order" class="btn btn-blue" name="button" type="submit" value="Valider" />
+            <a href="#" class="btn btn-blue btn-cancel">Annuler</a>
         </div>
         <!-- FAQ -->
         <fieldset> 

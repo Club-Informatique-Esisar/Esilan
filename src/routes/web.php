@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// http://puu.sh/ATDa5/10a7020978.png
 
 Auth::routes();
 
@@ -18,13 +17,16 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/esilan', 'EsilanController@index');
 Route::get('/esilan/{id}', 'EsilanController@show');
 
-
 Route::get('/faq', 'FAQController@show');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('profile', 'EsilanController@index')->name('profile');
     Route::get('/esilan/{idEsilan}/buyPlace/{ticketTypeName}', 'TicketController@buyPlace')
     ->name('buyPlace');
+    Route::get('/esilan/{idEsilan}/editPlace/{ticketTypeName}', 'TicketController@editPlace')
+    ->name('editPlace');
+    Route::get('/esilan/{idEsilan}/deletePlace/{ticketTypeName}', 'TicketController@deletePlace')
+    ->name('deletePlace');
     Route::post('/commande', 'TicketController@validateCommand');
 });
 

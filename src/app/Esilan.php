@@ -36,4 +36,9 @@ class Esilan extends Model
         }
         return $res;
     }
+
+    public function fullImgPathOrDefault(){
+        if (is_null($this->imgName)) return "img/default_avatar.png";
+        return "upload/".$this->imgName;
+    }
 }

@@ -13,9 +13,9 @@
 
         <div class="valid-order">
             @if ($opt == "create")
-            <input id="place-order" class="btn" name="button" type="submit" value="Créer" />
+            <input id="place-order" class="btn btn-blue" name="button" type="submit" value="Créer" />
             @else 
-            <input id="place-order" class="btn" name="button" type="submit" value="Modifier" />
+            <input id="place-order" class="btn btn-blue" name="button" type="submit" value="Modifier" />
             @endif
         </div>
         <!-- ESILAN -->
