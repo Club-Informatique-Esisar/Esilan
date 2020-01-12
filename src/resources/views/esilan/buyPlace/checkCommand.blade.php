@@ -21,7 +21,7 @@
     <div class="container body-content clearfix">
         <h2>Commande</h2>
         <article class="clearfix">
-            <div class="post-content">
+            <div class="post-content clearfix">
                 <div class="alert alert-success">
                     <p>Votre commande a été validée avec succès !</p>
                     <p>Pour les règlements, nous serons disponibles <span class="bold">du lundi au jeudi, aux pauses de 10h, 12h et 15h à la cafet' !</span></p>
