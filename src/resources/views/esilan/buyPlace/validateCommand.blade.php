@@ -32,6 +32,7 @@
                                     <p class="description">{{ $ticketType->desc }}</p>
 
                                     <input class="hidden" type="text" name="ticketType" value="{{ $ticketType->id }}"/>
+                                    <input class="hidden" type="text" name="editOrRegister" value="register"/>
                                 </div>
                             </fieldset>
                         </div>
