@@ -65,6 +65,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="valid-order">
+                    <a href="{{url("/esilan/".$esilan->id)}}" id="place-order" class="btn btn-blue">Retourner à l'Esilan</a>
+                </div>
 
             </div>
         </article>
