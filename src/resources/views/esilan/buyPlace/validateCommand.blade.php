@@ -28,10 +28,9 @@
                             <fieldset>
                                 <legend>Esilan</legend>
                                 <div>
-                                    <p>Vous avez sélectionné une place <span class="bold"> {{ $ticketType->name }}</span></p>
+                                    <p>Vous avez sélectionné une place <span class="bold">{{ $ticketType->name }}</span></p>
                                     <p class="description">{{ $ticketType->desc }}</p>
-                                    
-                                    
+
                                     <input class="hidden" type="text" name="ticketType" value="{{ $ticketType->id }}"/>
                                 </div>
                             </fieldset>
