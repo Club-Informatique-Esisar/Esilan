@@ -36,21 +36,42 @@
                       </div>
                   <div class="product-tickets">{{ $ticketType->nbSales() }} inscrits / {{ $ticketType->maxTicket }}</div>
               </div>
-              <div class="product-info clearfix">
               @guest
-              <p><i>Vous devez être connecté pour réserver cette place =)</i></p>
+              <div class="product-info clearfix">
+                <p><i>Vous devez être connecté pour réserver cette place =)</i></p>
+              </div>
               @else
                 @if(Auth::user()->isRegisterToEsilan($esilan->id))
-                  <button class="disabled">Déjà inscrit</button>
+                  @if(Auth::user()->ownTicketType($ticketType->id))
+                  <div class="product-info clearfix">
+                    <a class="btn btn-blue" href="{{ route('editPlace', ['idEsilan' => $esilan->id, 'ticketTypeName' => $ticketType->name ]) }}">Modifier mon inscription</a>
+                  </div>
+                  <div class="product-info clearfix">
+                    <a href="javascript:void(0);" id="mpopupLink" id="remove-ticket" class="txt-cancel">Annuler l'inscription ?</a>
+                    <!-- mPopup box -->
+                    <div id="mpopupBox" class="mpopup">
+                      <div class="mpopup-content">
+                          <div class="mpopup-main">
+                              <p>Confirmez vous l'annulation de votre place ?</p>
+                              <span id="mpopupClose" class="btn btn-cancel-cancel light-hidden">Argh, non !</span>
+                              <a href="{{ route('deletePlace', ['idEsilan' => $esilan->id, 'ticketTypeName' => $ticketType->name ]) }}" id="cancel-remove-ticket" class="btn btn-confirm-cancel light-hidden">Je veux annuler ma place !</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  @endif
                 @elseif($ticketType->nbTicketAvailable() <= 0 || new DateTime() > new DateTime($esilan->beginDate))
-                  <button class="disabled">Inscriptions fermées</button>
+                <div class="product-info clearfix">
+                  <button class="btn-blue disabled">Inscriptions fermées</button>
+                </div>
                 @else
-                  <a class="btn btn-blue" href="{{ route('buyPlace', ['idEsilan' => $esilan->id, 'ticketTypeName' => $ticketType->name ]) }}" class="button-reservation">
+                <div class="product-info clearfix">
+                  <a class="btn btn-blue" href="{{ route('buyPlace', ['idEsilan' => $esilan->id, 'ticketTypeName' => $ticketType->name ]) }}">
                     Réserver cette place !
                   </a>
+                </div>
                 @endif
               @endguest
-              </div>
             </div>
           </aside>
         @endforeach
