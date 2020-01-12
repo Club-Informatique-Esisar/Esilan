@@ -26,7 +26,8 @@ $(document).ready(function() {
 
 
     // RICH EDITOR
-    CKEDITOR.replace( 'inputDesc' );
+
+    if ( typeof( CKEDITOR ) != "undefined" ) CKEDITOR.replace( 'inputDesc' );
 
     // TODO: Why not vanilla js form img-fullable
 
