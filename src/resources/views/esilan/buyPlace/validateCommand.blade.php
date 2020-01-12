@@ -40,6 +40,7 @@
                             <fieldset>
                                 <legend>Tournois</legend>
                                 <div>
+                                    <p>Voulez vous également vous inscrire à un tournoi ?</p>
                                     @forelse ($ticketType->tournaments as $tournament)
                                         <div class="sub-product">
                                             <input id="{{ $tournament->name }}" type="checkbox" name="{{ "tournaments[$tournament->id]" }}" value="{{$tournament->id}}"/>
