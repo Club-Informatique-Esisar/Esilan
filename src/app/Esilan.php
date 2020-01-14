@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Utils\ImageLibrary\ImageLibrary;
 
 class Esilan extends Model
 {
@@ -37,8 +38,8 @@ class Esilan extends Model
         return $res;
     }
 
-    public function fullImgPathOrDefault(){
+    public function fullImgPathOrDefault($size = null){
         if (is_null($this->imgName)) return "img/default_avatar.png";
-        return "upload/".$this->imgName;
+        return ImageLibrary::getFile($this->imgName, $size);
     }
 }

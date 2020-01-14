@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Utils\ImageLibrary\ImageLibrary;
 
 class Tournament extends Model
 {
@@ -37,9 +38,9 @@ class Tournament extends Model
         return false;
     }
 
-    public function fullImgPathOrDefault(){
-        if ($this->useGameImg) return $this->game->fullImgPathOrDefault();
+    public function fullImgPathOrDefault($size = null){
+        if ($this->useGameImg) return $this->game->fullImgPathOrDefault($size);
         if (is_null($this->imgName)) return "img/default_avatar.png";
-        return "upload/".$this->imgName;
+        return ImageLibrary::getFile($this->imgName, $size);
     }
 }
