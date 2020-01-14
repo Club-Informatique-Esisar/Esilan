@@ -10,7 +10,7 @@
             @if($e->beginDate->greaterThan(now()))
             <div class="esilan-item" onclick="location.href ='{{ url('/esilan/'.$e->id) }}'">
             @else 
-            <div class="esilan-item inactive" onclick="location.href ='{{ url('/esilan/'.$e->id) }}'">>
+            <div class="esilan-item inactive" onclick="location.href ='{{ url('/esilan/'.$e->id) }}'">
             @endif
                 <figure class="m0">
                     <img src="{{ asset($e->fullImgPathOrDefault("m")) }}">
