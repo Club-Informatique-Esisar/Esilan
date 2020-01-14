@@ -49,7 +49,7 @@
                                             <input id="{{ $tournament->name }}" type="checkbox" name="{{ "tournaments[$tournament->id]" }}" value="{{$tournament->id}}"/>
                                         @endif
                                             <label for="{{ $tournament->name }}">
-                                                <img src="{{ asset($tournament->fullImgPathOrDefault()) }}">
+                                                <img src="{{ asset($tournament->fullImgPathOrDefault("s")) }}">
                                                 {{ $tournament->name }}</label>
                                         </div>
                                     @empty

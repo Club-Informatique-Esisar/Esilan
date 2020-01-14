@@ -11,7 +11,7 @@
         @else
             <div class="ribbon ribbon-end"></div>
         @endif
-            {{ HTML::image('upload/'.$tournament->imgName, $tournament->imgName.' logo') }}
+            {{ HTML::image($tournament->fullImgPathOrDefault(), $tournament->imgName.' logo') }}
             <legend>
                 <h3>{{ $tournament->name }}</h3>
                 <p>{{ $tournament->beginDate->formatLocalized('%A %d %B %G - %T') }}</p>
