@@ -34,7 +34,7 @@
             </div>
             <div class="form-inline">
             @if($game->imgName)
-                <img class="img-fullable" src="{{ asset('upload/'.$game->imgName) }}" height="210px"> 
+                <img class="img-fullable" src="{{ asset($game->fullImgPathOrDefault()) }}" height="210px"> 
             @endif
                 <div class="form-simple form-element">
                     <label for="inputImg">Affiche du Jeu <span class="required">*</span></label>

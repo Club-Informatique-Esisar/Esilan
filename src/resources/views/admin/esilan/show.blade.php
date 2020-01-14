@@ -56,7 +56,7 @@
             </div>
             <div class="form-inline">
             @if($esilan->imgName)
-                <img class="img-fullable" src="{{ asset('upload/'.$esilan->imgName) }}" height="210px"> 
+                <img class="img-fullable" src="{{ asset($esilan->fullImgPathOrDefault()) }}" height="210px"> 
             @endif
                 <div class="form-simple form-element">
                     <label for="inputImg">Affiche de l'EsiLAN <span class="required">*</span></label>

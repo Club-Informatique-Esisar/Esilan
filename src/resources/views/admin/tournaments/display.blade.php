@@ -28,7 +28,7 @@
 
     @if($esilan)
     <div>
-        <img src="{{ asset('upload/'.$esilan->imgName) }}" width="100px">
+        <img src="{{ asset($esilan->fullImgPathOrDefault()) }}" width="100px">
         <p>{{ $esilan->name }}</p>
         <p>{{ $esilan->beginDate }} - {{ $esilan->endDate }}</p>
 

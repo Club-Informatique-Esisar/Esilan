@@ -15,7 +15,7 @@
                         @endif
                         {{ HTML::image('img/round-add-button.png', 'more informations') }}
                     </div>
-                    {{ HTML::image('upload/'.$esilan->imgName, 'Affiche'.$esilan->name, array('class' => 'esilan-poster')) }}
+                    {{ HTML::image($esilan->fullImgPathOrDefault(), 'Affiche'.$esilan->name, array('class' => 'esilan-poster')) }}
                 </a>
             </div>
         </article>
