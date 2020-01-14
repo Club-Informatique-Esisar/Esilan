@@ -92,7 +92,7 @@ $(document).ready(function() {
             idGame: e.val()
         }).done(function(data) {
             console.log("OK");
-            e.parent().find(".select-img").attr("src", "/upload/"+data.imgName);
+            e.parent().find(".select-img").attr("src", "/"+data.imgName);
         })
     })
     $("#inputIdEsilan").change(function(event){
@@ -103,7 +103,7 @@ $(document).ready(function() {
             idEsilan: e.val()
         }).done(function(data) {
             console.log("OK");
-            e.parent().find(".select-img").attr("src", "/upload/"+data.imgName);
+            e.parent().find(".select-img").attr("src", "/"+data.imgName);
         })
     })
     $("#inputIdGame").change();

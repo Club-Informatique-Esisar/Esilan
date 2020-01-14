@@ -203,11 +203,11 @@ class AdminController extends Controller
 
     public function ajaxEsilanImgName(Request $request){
         $esilan = Esilan::findOrFail($request->input('idEsilan', '-1'));
-        return response()->json(["imgName" => $esilan->imgName]);
+        return response()->json(["imgName" => $esilan->fullImgPathOrDefault()]);
     }
     public function ajaxGameImgName(Request $request){
         $game = Game::findOrFail($request->input('idGame', '-1'));
-        return response()->json(["imgName" => $game->imgName]);
+        return response()->json(["imgName" => $game->fullImgPathOrDefault()]);
     }
     /****************************************
      * GAMES
