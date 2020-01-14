@@ -12,6 +12,7 @@ use App\Ticket;
 use App\Tournament;
 use App\User;
 use Carbon\Carbon;
+use Utils\ImageLibrary\ImageLibrary;
 
 class AdminController extends Controller
 {
@@ -88,9 +89,10 @@ class AdminController extends Controller
             $esilan->endDate = Carbon::createFromFormat('Y-m-d H:i',$request->endDate." ".$request->endTime);
 
             if ($request->hasFile('img') && $request->file('img')->isValid()) {
-                $imgName = "esilanAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
-                $request->file('img')->move(public_path('upload'), $imgName);
-                $esilan->imgName = $imgName;
+                $ext = $request->img->getClientOriginalExtension();
+                $imgName = "esilanAffiche_" . time();
+                ImageLibrary::writeFile($request->file('img'), $imgName, $ext);
+                $esilan->imgName = $imgName.".".$ext;
             }
 
             $esilan->save();
@@ -113,9 +115,10 @@ class AdminController extends Controller
             $updateEsilan->endDate = Carbon::createFromFormat('Y-m-d H:i',$request->endDate." ".$request->endTime);
 
             if ($request->hasFile('img') && $request->file('img')->isValid()) {
-                $imgName = "esilanAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
-                $request->file('img')->move(public_path('upload'), $imgName);
-                $updateEsilan->imgName = $imgName;
+                $ext = $request->img->getClientOriginalExtension();
+                $imgName = "esilanAffiche_" . time();
+                ImageLibrary::writeFile($request->file('img'), $imgName, $ext);
+                $updateEsilan->imgName = $imgName.".".$ext;
             }
 
             $updateEsilan->save();
@@ -234,9 +237,10 @@ class AdminController extends Controller
             $game->desc = $request->descGame;
 
             if ($request->hasFile('img') && $request->file('img')->isValid()) {
-                $imgName = "jeuAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
-                $request->file('img')->move(public_path('upload'), $imgName);
-                $game->imgName = $imgName;
+                $ext = $request->img->getClientOriginalExtension();
+                $imgName = "jeuAffiche_" . time();
+                ImageLibrary::writeFile($request->file('img'), $imgName, $ext);
+                $game->imgName = $imgName.".".$ext;
             }
             $game->save();
 
@@ -247,9 +251,10 @@ class AdminController extends Controller
             $updateGame->desc = $request->descGame;
 
             if ($request->hasFile('img') && $request->file('img')->isValid()) {
-                $imgName = "jeuAffiche_" . time() . "." . $request->img->getClientOriginalExtension();
-                $request->file('img')->move(public_path('upload'), $imgName);
-                $updateGame->imgName = $imgName;
+                $ext = $request->img->getClientOriginalExtension();
+                $imgName = "jeuAffiche_" . time();
+                ImageLibrary::writeFile($request->file('img'), $imgName, $ext);
+                $updateGame->imgName = $imgName.".".$ext;
             }
 
             $updateGame->save();
@@ -313,9 +318,10 @@ class AdminController extends Controller
                 $game = Game::find($request->idGameTournament);
                 $tournament->imgName = $game->imgName;
             } else if ($request->inputSwitchImg == "own_img" && $request->hasFile('imgTournament') && $request->file('imgTournament')->isValid()) {
-                $imgName = "tournamentAffiche" . time() . "." . $request->imgTournament->getClientOriginalExtension();
-                $request->file('imgTournament')->move(public_path('upload'), $imgName);
-                $tournament->imgName = $imgName;
+                $ext = $request->imgTournament->getClientOriginalExtension();
+                $imgName = "tournamentAffiche" . time();
+                ImageLibrary::writeFile($request->file('imgTournament'), $imgName, $ext);
+                $tournament->imgName = $imgName.".".$ext;
             }
 
             $tournament->save();
@@ -331,9 +337,10 @@ class AdminController extends Controller
                 $game = Game::find($request->idGameTournament);
                 $tournament->imgName = $game->imgName;
             } else if ($request->inputSwitchImg == "own_img" && $request->hasFile('imgTournament') && $request->file('imgTournament')->isValid()) {
-                $imgName = "tournamentAffiche" . time() . "." . $request->imgTournament->getClientOriginalExtension();
-                $request->file('imgTournament')->move(public_path('upload'), $imgName);
-                $tournament->imgName = $imgName;
+                $ext = $request->imgTournament->getClientOriginalExtension();
+                $imgName = "tournamentAffiche" . time();
+                ImageLibrary::writeFile($request->file('imgTournament'), $imgName, $ext);
+                $tournament->imgName = $imgName.".".$ext;
             }
             
             $tournament->save();
