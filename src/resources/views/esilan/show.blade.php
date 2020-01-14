@@ -73,7 +73,7 @@
           @foreach($esilan->tournaments as $t)
           <div class="tournament-item">
             <figure>
-              <img src="{{ asset($t->fullImgPathOrDefault()) }}">
+              <img src="{{ asset($t->fullImgPathOrDefault("m")) }}">
             </figure>
             <div class="text">
               <h3>{{ $t->name }}<span class="time italic"> de {{ $t->beginDate->formatLocalized('%H:%M') }} - {{ $t->endDate->formatLocalized('%H:%M')  }}</span></h3>

@@ -13,7 +13,7 @@
             <div class="esilan-item inactive" onclick="location.href ='{{ url('/esilan/'.$e->id) }}'">>
             @endif
                 <figure class="m0">
-                    <img src="{{ asset($e->fullImgPathOrDefault()) }}">
+                    <img src="{{ asset($e->fullImgPathOrDefault("m")) }}">
                 </figure>
                     
                 <div class="right">
@@ -36,7 +36,7 @@
                             <div>
                             @foreach($e->tournaments as $t)
                                 <figure>
-                                    <img src="{{ asset($t->fullImgPathOrDefault()) }}">
+                                    <img src="{{ asset($t->fullImgPathOrDefault("s")) }}">
                                 </figure>
                             @endforeach
                             </div>
